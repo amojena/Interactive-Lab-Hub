@@ -67,13 +67,13 @@ _Activity:_ What is happening between the actors?
 _Goals:_ What are the goals of each player? (e.g., jumping to a tree, opening the fridge). 
 
 The interactive device can be anything *except* a computer, a tablet computer or a smart phone, but the main way it interacts needs to be using light.
-**Describe your setting, players, activity and goals here.**
+**Say you live on Roosevelt Island and you have to take the tram to get to your 7:30pm dinner. You know you have to take the tram at some point but are not sure at what time you need to leave or if either of the tram  are out of service. Luckily, you have your TramFam that lights up to tell you when you should leave in order to catch the incoming tram. It knows when to light up because you have told it how long it takes you to get to the tram station and at the latest what time you should be on the tram.**
 
 Sketch a storyboard of the interactions you are planning. It does not need to be perfect, but must get across the behavior of the interactive device and the other characters in the scene. 
-**Include a picture of your storyboard here**
+![Storyboard for TramFam](https://github.com/amojena/Interactive-Lab-Hub/Lab1/storyboard.jpg)
 
 Present your idea to the other people in your breakout room. You can just get feedback from one another or you can work together on the other parts of the lab.
-**Summarize feedback you got here.**
+**The idea is useful for Roosevelt Island residents and the costume of the design could be fairly easy as you could just have the room light up. You could also hide it as a light-up 3D object on your desk or room.**
 
 
 ## Part B. Act out the Interaction
@@ -81,8 +81,9 @@ Present your idea to the other people in your breakout room. You can just get fe
 Try physically acting out the interaction you planned. For now, you can just pretend the device is doing the things you’ve scripted for it. 
 
 **Are there things that seemed better on paper than acted out?**
+On paper, it seems like having a small 3D object that could go on top of your drawer or desk would be enough. Acted out, I realized that just chaning the color of the light might not be a good enough indicator. One could easily miss or not acknowledge the change in color and miss the tram.
 
-**Are there new ideas that occur to you or your collaborators that come up from the acting?**
+**You could have 2 sets of lights to represent each tram cart. Each could be represented by a gradient of some sort that represents their position and direction (i.e. is the tram about to arrive, is one of them out of service, etc.). Additionally, an audible alarm that accompanies that color change would be more impactful.**
 
 
 ## Part C. Prototype the device
