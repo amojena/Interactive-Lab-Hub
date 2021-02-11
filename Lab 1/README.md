@@ -70,7 +70,7 @@ The interactive device can be anything *except* a computer, a tablet computer or
 **Say you live on Roosevelt Island and you have to take the tram to get to your 7:30pm dinner. You know you have to take the tram at some point but are not sure at what time you need to leave or if either of the tram  are out of service. Luckily, you have your TramFam that lights up to tell you when you should leave in order to catch the incoming tram. It knows when to light up because you have told it how long it takes you to get to the tram station and at the latest what time you should be on the tram.**
 
 Sketch a storyboard of the interactions you are planning. It does not need to be perfect, but must get across the behavior of the interactive device and the other characters in the scene. 
-![Storyboard for TramFam](https://github.com/amojena/Interactive-Lab-Hub/Lab1/storyboard.jpg)
+![Storyboard for TramFam](https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%201/storyboard.jpg)
 
 Present your idea to the other people in your breakout room. You can just get feedback from one another or you can work together on the other parts of the lab.
 **The idea is useful for Roosevelt Island residents and the costume of the design could be fairly easy as you could just have the room light up. You could also hide it as a light-up 3D object on your desk or room.**
