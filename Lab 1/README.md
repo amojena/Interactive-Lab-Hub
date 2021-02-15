@@ -102,6 +102,7 @@ Take a little time to set up the wizarding set-up that allows for someone to rem
 
 **Include your first attempts at recording the set-up video here.**
 ![Storyboard 2 for TramFam](https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%201/first_recording.mp4)
+![Google Drive link](https://drive.google.com/file/d/19I2VyKa6eJoqfLrSTV-qwQ6b-S-4xVt4/view?usp=sharing)
 
 Now, hange the goal within the same setting, and update the interaction with the paper prototype. 
 
@@ -125,6 +126,7 @@ What concerns me is how LED strips are usually stuck to walls. Once you put LED 
 
 **Take a video of your prototyped interaction.**
 ![Storyboard 2 for TramFam](https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%201/final_recording.mp4)
+![Google Drive link](https://drive.google.com/file/d/1mfsKJBCSZyYxDD1DenQKVaOARrMBsYZs/view?usp=sharing)
 
 **Please indicate anyone you collaborated with on this Lab.**
 Be generous in acknowledging their contributions! And also recognizing any other influences (e.g. from YouTube, Github, Twitter) that informed your design. 
