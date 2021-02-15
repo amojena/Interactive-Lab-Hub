@@ -101,8 +101,8 @@ We invented this tool for this lab!
 Take a little time to set up the wizarding set-up that allows for someone to remotely control the device while someone acts with it. Hint: You can use Zoom to record videos, and you can pin someone’s video feed if that is the scene which you want to record. 
 
 **Include your first attempts at recording the set-up video here.**
-![Storyboard 2 for TramFam](https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%201/first_recording.mp4)
-![Google Drive link](https://drive.google.com/file/d/19I2VyKa6eJoqfLrSTV-qwQ6b-S-4xVt4/view?usp=sharing)
+[Storyboard 2 for TramFam](https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%201/first_recording.mp4)
+[Google Drive link](https://drive.google.com/file/d/19I2VyKa6eJoqfLrSTV-qwQ6b-S-4xVt4/view?usp=sharing)
 
 Now, hange the goal within the same setting, and update the interaction with the paper prototype. 
 
@@ -116,7 +116,7 @@ Only now should you start worrying about what the device should look like. Devel
 Think about the setting of the device: is the environment a place where the device could overheat? Is water a danger? Does it need to have bright colors in an emergency setting?
 
 **Include sketches of what your device might look like here.**
-![Storyboard 2 for TramFam](https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%201/storyboard-2.jpg)
+[Storyboard 2 for TramFam](https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%201/storyboard-2.jpg)
 
 **What concerns or opportunitities are influencing the way you've designed the device to look?**
 What concerns me is how LED strips are usually stuck to walls. Once you put LED strips they are hard to move around. This would force the user to have to think well of where they would want this LED alarm-like product to go. The opportunity I see however is that now the target audience does not only have to be commuters that have to take the Roosevelt Island tram. It could be anyone who is looking for a visual type of alarm or would like to have an LED strip with more functional features.
@@ -125,8 +125,8 @@ What concerns me is how LED strips are usually stuck to walls. Once you put LED 
 ## Part F. Record
 
 **Take a video of your prototyped interaction.**
-![Storyboard 2 for TramFam](https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%201/final_recording.mp4)
-![Google Drive link](https://drive.google.com/file/d/1mfsKJBCSZyYxDD1DenQKVaOARrMBsYZs/view?usp=sharing)
+[Storyboard 2 for TramFam](https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%201/final_recording.mp4)
+[Google Drive link](https://drive.google.com/file/d/1mfsKJBCSZyYxDD1DenQKVaOARrMBsYZs/view?usp=sharing)
 
 **Please indicate anyone you collaborated with on this Lab.**
 Be generous in acknowledging their contributions! And also recognizing any other influences (e.g. from YouTube, Github, Twitter) that informed your design. 
