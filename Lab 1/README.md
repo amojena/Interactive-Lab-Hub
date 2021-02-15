@@ -74,9 +74,7 @@ Sketch a storyboard of the interactions you are planning. It does not need to be
 ![Storyboard for TramFam](https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%201/storyboard.jpg)
 
 Present your idea to the other people in your breakout room. You can just get feedback from one another or you can work together on the other parts of the lab. **Summarize feedback you got here.**
-
-
-The idea is useful for Roosevelt Island residents and the costume of the design could be fairly easy as you could just have the room light up. You could also hide it as a light-up 3D object on your desk or room.
+I got general storyboard feedback to better describe what I was envisioning the object would look like and behave. In terms of the actual product, my colleagues noted that a small object might not have a big impact. For example, if you have the light-up object in your bedroom but you are in your living room, a small object changing colors will not be much help. Therefore, I should make the light change more dramatic somehow.
 
 
 ## Part B. Act out the Interaction
@@ -103,10 +101,12 @@ We invented this tool for this lab!
 Take a little time to set up the wizarding set-up that allows for someone to remotely control the device while someone acts with it. Hint: You can use Zoom to record videos, and you can pin someone’s video feed if that is the scene which you want to record. 
 
 **Include your first attempts at recording the set-up video here.**
+![Storyboard 2 for TramFam](https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%201/first_recording.mp4)
 
 Now, hange the goal within the same setting, and update the interaction with the paper prototype. 
 
 **Show the follow-up work here.**
+No update was made as to how you interact with the product. It would still be something like an alarm app on your phone which you set and turn off as needed. What has changed is what the product would look like. I thought LED strips that have some sort an alarm system of sorts integrated into its software would be ideal. 
 
 ## Part E. Costume the device
 
@@ -115,16 +115,21 @@ Only now should you start worrying about what the device should look like. Devel
 Think about the setting of the device: is the environment a place where the device could overheat? Is water a danger? Does it need to have bright colors in an emergency setting?
 
 **Include sketches of what your device might look like here.**
+![Storyboard 2 for TramFam](https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%201/storyboard-2.jpg)
 
 **What concerns or opportunitities are influencing the way you've designed the device to look?**
+What concerns me is how LED strips are usually stuck to walls. Once you put LED strips they are hard to move around. This would force the user to have to think well of where they would want this LED alarm-like product to go. The opportunity I see however is that now the target audience does not only have to be commuters that have to take the Roosevelt Island tram. It could be anyone who is looking for a visual type of alarm or would like to have an LED strip with more functional features.
 
 
 ## Part F. Record
 
 **Take a video of your prototyped interaction.**
+![Storyboard 2 for TramFam](https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%201/final_recording.mp4)
 
 **Please indicate anyone you collaborated with on this Lab.**
 Be generous in acknowledging their contributions! And also recognizing any other influences (e.g. from YouTube, Github, Twitter) that informed your design. 
+
+I received feedback from Sachi Angle, Sanika Bapat and Joy Liu.
 
 # Staging Interaction, Part 2 
 
