@@ -146,6 +146,7 @@ This describes the second week's work for this lab activity.
 You will be assigned three partners from another group. Go to their github pages, view their videos, and provide them with reactions, suggestions & feedback: explain to them what you saw happening in their video. Guess the scene and the goals of the character. Ask them about anything that wasn’t clear. 
 
 **Summarize feedback from your partners here.**
+The general feedback was that the idea of using LED strips to more seamlessly integrate the alarm but it might be overwhelming just as a means of an alarm to leave because of the tram. With such a dramatic urgency the LED strips create, could it be used for other events that actually call for such urgency (i.e. earthquakes, fires, etc.).
 
 ## Make it your own
 
