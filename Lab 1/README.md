@@ -95,6 +95,9 @@ You will be using your smartphone as a stand-in for the device you are prototypi
 Code for the "Tinkerbelle" tool, and instructions for setting up the server and your phone are [here](https://github.com/FAR-Lab/tinkerbelle).
 
 We invented this tool for this lab! 
+
+If you run into technical issues with this tool, you can also use a light switch, dimmer, etc. that you can can manually or remotely control.
+
 **Give us feedback on Tinkerbelle.**
 
 ## Part D. Wizard the device
@@ -143,6 +146,7 @@ This describes the second week's work for this lab activity.
 You will be assigned three partners from another group. Go to their github pages, view their videos, and provide them with reactions, suggestions & feedback: explain to them what you saw happening in their video. Guess the scene and the goals of the character. Ask them about anything that wasn’t clear. 
 
 **Summarize feedback from your partners here.**
+The general feedback was that the idea of using LED strips to more seamlessly integrate the alarm but it might be overwhelming just as a means of an alarm to leave because of the tram. With such a dramatic urgency the LED strips create, could it be used for other events that actually call for such urgency (i.e. earthquakes, fires, etc.).
 
 ## Make it your own
 
