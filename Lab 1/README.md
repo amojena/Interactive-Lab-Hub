@@ -152,3 +152,9 @@ Do last week’s assignment again, but this time:
 3) We will be grading with an emphasis on creativity. 
 
 **Document everything here.**
+
+This device is a bed-vibrating alarm for deaf people. Since they cannot be woken up with audio cues, you can wake them up with movement. A mattressed that has coils inside it that are controlled with an alarm app. They vibrate at the intensity chosen by the user at the time set on the app.
+
+![Storyboard for Bed Alarm](https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%201/storyboard-bed.jpg)
+[Video for Bed Alarm](https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%201/bed-recording.mp4)
+)
