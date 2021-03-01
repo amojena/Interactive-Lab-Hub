@@ -1,4 +1,4 @@
-import time, strftime
+import time
 import subprocess
 import digitalio
 import board
@@ -68,8 +68,11 @@ while True:
     draw.image(image, rotation)
 
     #TODO: fill in here. You should be able to look in cli_clock.py and stats.py 
-    curr_time = strftime("%m/%d/%Y %H:%M:%S")
-    cmd = f"echo {curr_time}"
+    Y = top
+    cmd = "date  + %T"
+    TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
+    draw.text((x, y), TIME, font=font, fill="#FFFFFF")
+    y += font.getsize(TIME)[1]
 
     # Display image.
     # disp.image(image, rotation)
