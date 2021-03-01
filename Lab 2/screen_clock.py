@@ -64,6 +64,9 @@ backlight.value = True
 
 # main("galxy.jpg")
 
+fills = ["#FFFFFF", "#000000"]
+filler = 0
+
 while True:
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
@@ -72,8 +75,16 @@ while True:
     y = top
     cmd = "date"
     TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
-    draw.text((x, y), TIME, font=font, fill="#FFFFFF")
-    # y += font.getsize(TIME)[1]
+    draw.text((x, y), TIME, font=font, fill=filler%2)
+    y += font.getsize(TIME)[1]
+    draw.text((x, y), TIME, font=font, fill=(filler+1)%2)
+    y += font.getsize(TIME)[1]
+    draw.text((x, y), TIME, font=font, fill=filler%2)
+    y += font.getsize(TIME)[1]
+    draw.text((x, y), TIME, font=font, fill=(filler+1)%2)
+    y += font.getsize(TIME)[1]
+
+    filler += 1 % 2
 
     # Display image.
     disp.image(image, rotation)
