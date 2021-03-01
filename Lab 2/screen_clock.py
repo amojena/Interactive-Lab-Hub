@@ -83,6 +83,10 @@ while True:
     y += font.getsize(TIME)[1]
     draw.text((x, y), TIME, font=font, fill=fills[(filler+1)%2])
     y += font.getsize(TIME)[1]
+    draw.text((x, y), TIME, font=font, fill=fills[filler%2])
+    y += font.getsize(TIME)[1]
+    draw.text((x, y), TIME, font=font, fill=fills[(filler+1)%2])
+    y += font.getsize(TIME)[1]
 
     filler += 1 % 2
 
