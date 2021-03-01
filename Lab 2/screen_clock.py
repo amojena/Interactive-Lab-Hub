@@ -62,7 +62,7 @@ backlight = digitalio.DigitalInOut(board.D22)
 backlight.switch_to_output()
 backlight.value = True
 
-main("galxy.jpg")
+# main("galxy.jpg")
 
 while True:
     # Draw a black filled box to clear the image.
