@@ -69,7 +69,7 @@ while True:
 
     #TODO: fill in here. You should be able to look in cli_clock.py and stats.py 
     y = top
-    cmd = "date+\"%T\""
+    cmd = "date"
     TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
     draw.text((x, y), TIME, font=font, fill="#FFFFFF")
     # y += font.getsize(TIME)[1]
