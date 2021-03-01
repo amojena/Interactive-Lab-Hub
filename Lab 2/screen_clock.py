@@ -75,13 +75,13 @@ while True:
     y = top
     cmd = "date"
     TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
-    draw.text((x, y), TIME, font=font, fill=filler%2)
+    draw.text((x, y), TIME, font=font, fill=fills[filler%2])
     y += font.getsize(TIME)[1]
-    draw.text((x, y), TIME, font=font, fill=(filler+1)%2)
+    draw.text((x, y), TIME, font=font, fill=fills[(filler+1)%2])
     y += font.getsize(TIME)[1]
-    draw.text((x, y), TIME, font=font, fill=filler%2)
+    draw.text((x, y), TIME, font=font, fill=fills[filler%2])
     y += font.getsize(TIME)[1]
-    draw.text((x, y), TIME, font=font, fill=(filler+1)%2)
+    draw.text((x, y), TIME, font=font, fill=fills[(filler+1)%2])
     y += font.getsize(TIME)[1]
 
     filler += 1 % 2
