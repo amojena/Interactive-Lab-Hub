@@ -170,6 +170,9 @@ After that git will ask you to login to your github account to upload.
 
 **Take a video of your PiClock.**
 
+[https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%202/pi_clock.gif]
+
+
 ## Part G. 
 ## Sketch and brainstorm further interactions and features you would like for your clock for Part 2.
 
