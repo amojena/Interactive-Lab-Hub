@@ -4,6 +4,7 @@ import digitalio
 import board
 from PIL import Image, ImageDraw, ImageFont
 import adafruit_rgb_display.st7789 as st7789
+# from image_fn import main
 
 
 # Configuration for CS and DC pins (these are FeatherWing defaults on M0/M4):
@@ -60,12 +61,12 @@ font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 18)
 backlight = digitalio.DigitalInOut(board.D22)
 backlight.switch_to_output()
 backlight.value = True
-image = Image.new("galxy.jpg", (width, height))
+image = Image.open("galxy.jpg", (width, height))
 
 while True:
     # Draw a black filled box to clear the image.
     # draw.rectangle((0, 0, width, height), outline=0, fill=0)
-    draw.image(image, rotation)
+    disp.image(image, rotation)
 
     #TODO: fill in here. You should be able to look in cli_clock.py and stats.py 
     Y = top
