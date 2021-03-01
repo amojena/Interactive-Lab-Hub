@@ -170,12 +170,12 @@ After that git will ask you to login to your github account to upload.
 
 **Take a video of your PiClock.**
 
-[Pi Clock video](https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%202/pi_clock.gif)
+![Pi Clock video](https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%202/pi_clock.gif)
 
 
 ## Part G. 
 ## Sketch and brainstorm further interactions and features you would like for your clock for Part 2.
 
 
-Part 2 sketck](https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%202/sketch.jpg)
+![Part 2 sketch](https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%202/sketch.jpg)
 
