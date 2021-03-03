@@ -67,6 +67,24 @@ backlight.value = True
 fills = ["#FFFFFF", "#000000"]
 filler = 0
 
+cmd = "TZ=\":US/Eastern\" date"
+TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
+print(TIME)
+
+
+cmd = "TZ=\":US/Pacific\" date"
+TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
+print(TIME)
+
+
+cmd = "TZ=\":US/Mountain\" date"
+TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
+print(TIME)
+
+cmd = "TZ=\":US/Central\" date"
+TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
+print(TIME)
+
 while True:
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
