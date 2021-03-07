@@ -110,10 +110,10 @@ while True:
     # print(times[timeIndex].split())
 
 
-    draw.text((x, 0), hour, font=bigFont, fill=white)
+    draw.text((x, -5), hour, font=bigFont, fill=white)
     draw.text((bigFont.getsize(hour)[0], 0), mins, font=font, fill=white)
 
-    draw.text((x, bigFont.getsize(hour)[1]), timeZone, font=font, fill=white)
+    draw.text((x, bigFont.getsize(hour)[1] + 5), timeZone, font=font, fill=white)
 
 
     if buttonB.value and not buttonA.value:
