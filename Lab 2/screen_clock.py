@@ -111,14 +111,14 @@ while True:
 
 
     draw.text((x, 2), hour, font=bigFont, fill=white)
-    draw.text((x, 20), timeZone, font=font, fill=white)
+    draw.text((x, 75), timeZone, font=font, fill=white)
 
 
-    if buttonA.value:
+    if buttonB.value and not buttonA.value:
         timeIndex = (timeIndex + 1) % 4
         print("A")
 
-    if buttonB.value:
+    if buttonA.value and not buttonB.value:
         timeIndex = (timeIndex - 1) % 4
         print("B")
 
