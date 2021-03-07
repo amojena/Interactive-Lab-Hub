@@ -56,7 +56,7 @@ x = 0
 # same directory as the python script!
 # Some other nice fonts to try: http://www.dafont.com/bitmap.php
 font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 18)
-bigFont = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 30)
+bigFont = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 100)
 
 # Turn on the backlight
 backlight = digitalio.DigitalInOut(board.D22)
@@ -115,9 +115,11 @@ while True:
 
     if buttonA:
         timeIndex = (timeIndex + 1) % 4
+        print("A")
 
     if buttonB:
         timeIndex = (timeIndex - 1) % 4
+        print("B")
 
 
     filler += 1 % 2
