@@ -110,14 +110,15 @@ while True:
     # print(times[timeIndex].split())
 
 
-    draw.text((x, y), hour, font=bigFont, fill=white)
+    draw.text((x, 2), hour, font=bigFont, fill=white)
+    draw.text((x, 20), timeZone, font=font, fill=white)
 
 
-    if buttonA:
+    if buttonA.value:
         timeIndex = (timeIndex + 1) % 4
         print("A")
 
-    if buttonB:
+    if buttonB.value:
         timeIndex = (timeIndex - 1) % 4
         print("B")
 
