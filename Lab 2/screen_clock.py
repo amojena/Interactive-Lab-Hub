@@ -104,10 +104,10 @@ while True:
 
     times = [EST_TIME, PST_TIME, MST_TIME, CET_TIME]
 
-    _, dayNum, month, year,  tim, _, timeZone = times[timeIndex]
+    _, dayNum, month, year,  tim, _, timeZone = times[timeIndex].split()
     hour, mins, sec = tim.split(":")
     hour = (hour + 12) % 24
-    print(times[timeIndex].split())
+    # print(times[timeIndex].split())
 
 
     draw.text((x, y), hour, font=bigFont, fill=white)
