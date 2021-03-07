@@ -110,7 +110,7 @@ while True:
     print(times[timeIndex].split())
 
 
-    draw.text((x, y), hour, font=bigFont, fill=white])
+    draw.text((x, y), hour, font=bigFont, fill=white)
 
 
     if buttonA:
