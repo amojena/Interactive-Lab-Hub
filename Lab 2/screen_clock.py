@@ -56,7 +56,7 @@ x = 0
 # same directory as the python script!
 # Some other nice fonts to try: http://www.dafont.com/bitmap.php
 font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 30)
-bigFont = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 85)
+bigFont = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 95)
 
 # Turn on the backlight
 backlight = digitalio.DigitalInOut(board.D22)
@@ -110,8 +110,8 @@ while True:
     # print(times[timeIndex].split())
 
 
-    draw.text((x, 2), hour, font=bigFont, fill=white)
-    draw.text((x, 100), timeZone, font=font, fill=white)
+    draw.text((x, 1), hour, font=bigFont, fill=white)
+    draw.text((x, 95), timeZone, font=font, fill=white)
 
 
     if buttonB.value and not buttonA.value:
