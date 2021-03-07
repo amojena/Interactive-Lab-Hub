@@ -103,8 +103,8 @@ while True:
 
     times = [EST_TIME, PST_TIME, MST_TIME, CET_TIME]
 
-    day, month, day, year, tim = times[timeIndex]
-    print(tim)
+    # day, month, day, year, tim = times[timeIndex]
+    print(times[timeIndex])
 
 
 
