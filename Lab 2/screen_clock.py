@@ -106,7 +106,7 @@ while True:
 
     _, dayNum, month, year,  tim, _, timeZone = times[timeIndex].split()
     hour, mins, sec = tim.split(":")
-    hour = (int(hour) + 12) % 24
+    hour = str((int(hour) + 12) % 24)
     # print(times[timeIndex].split())
 
 
