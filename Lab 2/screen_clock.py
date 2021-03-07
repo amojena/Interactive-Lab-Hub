@@ -72,6 +72,7 @@ buttonB.switch_to_input()
 # main("galxy.jpg")
 
 fills = ["#FFFFFF", "#000000"]
+white = "#FFFFFF"
 filler = 0
 
 timeIndex = 0
@@ -103,11 +104,13 @@ while True:
 
     times = [EST_TIME, PST_TIME, MST_TIME, CET_TIME]
 
-    # day, month, day, year, tim = times[timeIndex]
+    _, dayNum, month, year,  tim, _, timeZone = times[timeIndex]
+    hour, mins, sec = tim.split(":")
+    hour = (hour + 12) % 24
     print(times[timeIndex].split())
 
 
-
+    draw.text((x, y), hour, font=bigFont, fill=white])
 
 
     if buttonA:
