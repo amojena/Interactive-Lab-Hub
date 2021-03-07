@@ -82,7 +82,7 @@ while True:
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
     #TODO: fill in here. You should be able to look in cli_clock.py and stats.py
-    # y = top
+    y = top
     # cmd = "date"
     # TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
     # draw.text((x, y), TIME, font=font, fill=fills[filler%2])
