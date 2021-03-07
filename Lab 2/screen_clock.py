@@ -55,7 +55,7 @@ x = 0
 # Alternatively load a TTF font.  Make sure the .ttf font file is in the
 # same directory as the python script!
 # Some other nice fonts to try: http://www.dafont.com/bitmap.php
-font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 18)
+font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 30)
 bigFont = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 85)
 
 # Turn on the backlight
@@ -111,7 +111,7 @@ while True:
 
 
     draw.text((x, 2), hour, font=bigFont, fill=white)
-    draw.text((x, 75), timeZone, font=font, fill=white)
+    draw.text((x, 100), timeZone, font=font, fill=white)
 
 
     if buttonB.value and not buttonA.value:
