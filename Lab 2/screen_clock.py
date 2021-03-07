@@ -56,55 +56,66 @@ x = 0
 # same directory as the python script!
 # Some other nice fonts to try: http://www.dafont.com/bitmap.php
 font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 18)
+bigFont = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 30)
 
 # Turn on the backlight
 backlight = digitalio.DigitalInOut(board.D22)
 backlight.switch_to_output()
 backlight.value = True
 
+
+buttonA = digitalio.DigitalInOut(board.D23)
+buttonB = digitalio.DigitalInOut(board.D24)
+buttonA.switch_to_input()
+buttonB.switch_to_input()
+
 # main("galxy.jpg")
 
 fills = ["#FFFFFF", "#000000"]
 filler = 0
 
-cmd = "TZ=\":US/Eastern\" date"
-TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
-print(TIME)
-
-
-cmd = "TZ=\":US/Pacific\" date"
-TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
-print(TIME)
-
-
-cmd = "TZ=\":US/Mountain\" date"
-TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
-print(TIME)
-
-cmd = "TZ=\":US/Central\" date"
-TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
-print(TIME)
+timeIndex = 0
 
 while True:
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
-    #TODO: fill in here. You should be able to look in cli_clock.py and stats.py 
-    y = top
-    cmd = "date"
-    TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
-    draw.text((x, y), TIME, font=font, fill=fills[filler%2])
-    y += font.getsize(TIME)[1]
-    draw.text((x, y), TIME, font=font, fill=fills[(filler+1)%2])
-    y += font.getsize(TIME)[1]
-    draw.text((x, y), TIME, font=font, fill=fills[filler%2])
-    y += font.getsize(TIME)[1]
-    draw.text((x, y), TIME, font=font, fill=fills[(filler+1)%2])
-    y += font.getsize(TIME)[1]
-    draw.text((x, y), TIME, font=font, fill=fills[filler%2])
-    y += font.getsize(TIME)[1]
-    draw.text((x, y), TIME, font=font, fill=fills[(filler+1)%2])
-    y += font.getsize(TIME)[1]
+    #TODO: fill in here. You should be able to look in cli_clock.py and stats.py
+    # y = top
+    # cmd = "date"
+    # TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
+    # draw.text((x, y), TIME, font=font, fill=fills[filler%2])
+    # y += font.getsize(TIME)[1]
+    # draw.text((x, y), TIME, font=font, fill=fills[(filler+1)%2])
+
+
+    cmd = "TZ=\":US/Eastern\" date"
+    EST_TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
+
+    cmd = "TZ=\":US/Pacific\" date"
+    PST_TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
+
+    cmd = "TZ=\":US/Mountain\" date"
+    MST_TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
+
+    cmd = "TZ=\":US/Central\" date"
+    CET_TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
+
+    times = [EST_TIME, PST_TIME, MST_TIME, CET_TIME]
+
+    _, month, day, year, tim = times[timeIndex]
+    print(tim)
+
+
+
+
+
+    if buttonA:
+        timeIndex = (timeIndex + 1) % 4
+
+    if buttonB:
+        timeIndex = (timeIndex - 1) % 4
+
 
     filler += 1 % 2
 
