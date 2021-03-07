@@ -56,7 +56,7 @@ x = 0
 # same directory as the python script!
 # Some other nice fonts to try: http://www.dafont.com/bitmap.php
 font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 18)
-bigFont = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 100)
+bigFont = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 85)
 
 # Turn on the backlight
 backlight = digitalio.DigitalInOut(board.D22)
@@ -82,7 +82,7 @@ while True:
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
     #TODO: fill in here. You should be able to look in cli_clock.py and stats.py
-    y = top
+    y = 5
     # cmd = "date"
     # TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
     # draw.text((x, y), TIME, font=font, fill=fills[filler%2])
