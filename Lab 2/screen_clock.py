@@ -111,7 +111,7 @@ while True:
 
 
     draw.text((x, 0), hour, font=bigFont, fill=white)
-    draw.text((bigFont.getsize(hour)[1], 0), mins, font=font, fill=white), 0), timeZone, font=font, fill=white)
+    draw.text((bigFont.getsize(hour)[1], 0), mins, font=font, fill=white), timeZone, font=font, fill=white)
 
     draw.text((x, bigFont.getsize(hour)[1]), timeZone, font=font, fill=white)
 
