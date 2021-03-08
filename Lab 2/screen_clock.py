@@ -138,7 +138,7 @@ def stopwatch():
 
         if done:
             break
-
+        disp.image(image, rotation)
 
 def main():
 
