@@ -82,6 +82,7 @@ def formatTime(tim):
 def stopwatch():
 
     print("stopwatch")
+    time.sleep(1)
     done = False
     started = False
     paused = False
