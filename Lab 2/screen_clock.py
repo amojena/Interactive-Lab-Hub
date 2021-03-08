@@ -69,15 +69,13 @@ buttonB = digitalio.DigitalInOut(board.D24)
 buttonA.switch_to_input()
 buttonB.switch_to_input()
 
-# main("galxy.jpg")
-
 
 def formatTime(tim):
+    secs = tim % 60
     mins = tim//60
     hours = mins//60
-    secs = tim % 60
 
-    return "{:0>2d}h:{:0>2d}m:{:0>2d}s".format(int(hours), int(mins), int(secs))
+    return "{:0>2d}h {:0>2d}m {:0>2d}s".format(int(hours), int(mins), int(secs))
 
 def stopwatch():
 
@@ -86,7 +84,6 @@ def stopwatch():
     done = False
     started = False
     paused = False
-    stopped = False
 
     hour = 0
     mins = 0
@@ -99,9 +96,9 @@ def stopwatch():
         draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
         if started is False:
-            stopwatchText = "00h:00m:00s"
+            stopwatchText = "00h 00m 00s"
 
-        elif not paused and not stopped:
+        elif not paused:
             stopwatchText = formatTime(time.time()-start_time - pauseOffset)
             print(stopwatchText, end="", flush=True)
             print("\r", flush=True, end="")
@@ -116,23 +113,27 @@ def stopwatch():
         if buttonB.value and not buttonA.value:
             if started is False:
                 started = True
-                print("let's go")
                 start_time = time.time()
-                done, paused, stopped = False, False, False
+                done, paused = False, False
                 hour = 0
                 mins = 0
                 secs = 0
                 lastPaused = 0.0
                 pauseOffset = 0.0
 
+            print(f"A: {paused}")
             if not paused:
                 lastPaused = time.time()
+                paused = True
 
-            paused != paused
+            elif paused:
+                paused = False
+
+
 
         if buttonA.value and not buttonB.value:
             print("derp")
-            if stopped or not started:
+            if not started:
                 done = True
             elif paused:
                 started = False
@@ -141,6 +142,7 @@ def stopwatch():
 
         if done:
             break
+
         disp.image(image, rotation)
         time.sleep(1)
 
