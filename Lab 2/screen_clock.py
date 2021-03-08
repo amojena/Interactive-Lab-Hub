@@ -117,8 +117,9 @@ while True:
     draw.text(timeZonePos, timeZone, font=font, fill="#FFFF00")
 
     date_abr = f"{month} {dayNum}"
-    datePos = timeZonePos
+    datePos = list(timeZonePos)
     datePos[0] = timeZonePos[0] + font.getsize(timeZone)[0]
+    datePos = tuple(datePos)
     draw.text(datePos, date_abr, font=font, fill=white)
 
 
