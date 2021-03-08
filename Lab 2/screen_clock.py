@@ -103,6 +103,7 @@ def stopwatch():
 
         elif not paused and not stopped:
             stopwatchText = formatTime(time.time()-start_time - pauseOffset)
+            print(stopwatchText, flush=True, end="")
 
         if paused:
             pauseOffset += time.time()-lastPaused
