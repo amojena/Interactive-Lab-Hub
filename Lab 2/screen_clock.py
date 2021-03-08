@@ -108,9 +108,11 @@ while True:
     hour, mins, sec = tim.split(":")
     hour = str((int(hour) + 12) % 24)
 
+    dispTime = f"{hour}:{mins}"
 
-    draw.text((x, -5), hour+":", font=bigFont, fill=white)
-    draw.text((bigFont.getsize(hour)[0] + 10, -5), mins, font=bigFont, fill=white)
+
+    draw.text((x, -5), dispTime, font=bigFont, fill=white)
+    # draw.text((bigFont.getsize(hour)[0] + 10, -5), mins, font=bigFont, fill=white)
 
     draw.text((x, bigFont.getsize(hour)[1] + 5), timeZone, font=font, fill=white)
 
