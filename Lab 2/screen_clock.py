@@ -152,7 +152,7 @@ while True:
 def formatTime(tim):
     mins = tim//60
     hours = mins//60
-    secs mins % 60
+    secs = mins % 60
 
     return "{:0>2d}h:{:0>2d}m:{:0>2d}s".format(int(hours), int(mins), int(secs))
 
