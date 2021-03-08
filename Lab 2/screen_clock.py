@@ -112,7 +112,7 @@ while True:
 
 
     draw.text((x, -5), dispTime, font=bigFont, fill=white)
-    draw.text((x + 30, bigFont.getsize(dispTime)[1] + 25), timeZone, font=font, fill=white)
+    draw.text((x + 60, bigFont.getsize(dispTime)[1] + 10), timeZone, font=font, fill="#00FFFF")
 
     y_pie =bigFont.getsize(dispTime)[1]
     x0, y0 = 5, y_pie
@@ -122,7 +122,7 @@ while True:
     draw.pieslice(pie_bound, 0, int(sec) * 6, white)
     sx = (x1+x0)/2
     sy = (y1+y0)/2
-    draw.text((sx, sy), sec, font=font, fill="#FF0000")
+    draw.text((sx-5, sy-10), sec, font=font, fill="#FF0000")
 
 
 
