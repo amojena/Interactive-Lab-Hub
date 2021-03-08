@@ -112,7 +112,16 @@ while True:
 
 
     draw.text((x, -5), dispTime, font=bigFont, fill=white)
-    draw.text((x + 60, bigFont.getsize(dispTime)[1] + 10), timeZone, font=font, fill="#FFFF00")
+
+    timeZonePos = (x + 60, bigFont.getsize(dispTime)[1] + 12)
+    draw.text(timeZonePos, timeZone, font=font, fill="#FFFF00")
+
+    date_abr = f"{month} {dayNum}"
+    datePos = timeZonePos
+    datePos[0] = timeZonePos[0] + font.getsize(timeZone)[0]
+    draw.text(datePos, date_abr, font=font, fill=white)
+
+
 
     y_pie =bigFont.getsize(dispTime)[1]
     x0, y0 = 5, y_pie
