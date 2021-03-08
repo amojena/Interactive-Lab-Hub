@@ -127,6 +127,7 @@ def stopwatch():
             paused != paused
 
         if buttonA.value and not buttonB.value:
+            print("derp")
             if stopped or not started:
                 done = True
             elif paused:
