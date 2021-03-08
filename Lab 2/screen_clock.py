@@ -81,6 +81,7 @@ def formatTime(tim):
 
 def stopwatch():
 
+    print("stopwatch")
     done = False
     started = False
     paused = False
@@ -203,8 +204,6 @@ def main():
         sx = (x1+x0)/2
         sy = (y1+y0)/2
         draw.text((sx-17, sy-15), sec, font=font, fill="#FF0000")
-
-
 
 
         if buttonB.value and not buttonA.value:
