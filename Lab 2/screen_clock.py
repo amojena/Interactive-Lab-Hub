@@ -122,7 +122,7 @@ while True:
     draw.pieslice(pie_bound, 0, int(sec) * 6, white)
     sx = (x1+x0)/2
     sy = (y1+y0)/2
-    draw.text((sx-15, sy-12), sec, font=font, fill="#FF0000")
+    draw.text((sx-17, sy-15), sec, font=font, fill="#FF0000")
 
 
 
