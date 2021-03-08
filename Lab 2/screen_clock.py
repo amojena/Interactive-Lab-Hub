@@ -107,7 +107,7 @@ def stopwatch():
             pauseOffset += time.time()-lastPaused
 
 
-        draw.text((0,30), stopwatchText, font=font, filler=white)
+        draw.text((0,30), stopwatchText, font=font, filler="#FFFFFF")
 
 
         if buttonB.value and not buttonA.value:
