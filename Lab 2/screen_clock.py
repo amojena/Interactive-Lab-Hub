@@ -143,7 +143,7 @@ while True:
         timeIndex = (timeIndex + 1) % 4
 
     if buttonA.value and not buttonB.value:
-        timeIndex = (timeIndex - 1) % 4
+        stopwatch()
 
     # Display image.
     disp.image(image, rotation)
