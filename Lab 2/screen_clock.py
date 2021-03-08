@@ -103,7 +103,7 @@ def stopwatch():
             print(stopwatchText, end="", flush=True)
             print("\r", flush=True, end="")
 
-        if paused:
+        elif paused:
             pauseOffset += time.time()-lastPaused
 
 
@@ -121,8 +121,7 @@ def stopwatch():
                 lastPaused = 0.0
                 pauseOffset = 0.0
 
-            print(f"A: {paused}\n")
-            if not paused:
+            elif not paused:
                 lastPaused = time.time()
                 paused = True
 
