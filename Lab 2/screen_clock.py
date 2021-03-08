@@ -113,14 +113,14 @@ while True:
 
     draw.text((x, -5), dispTime, font=bigFont, fill=white)
 
-    timeZonePos = (x + 60, bigFont.getsize(dispTime)[1] + 12)
+    timeZonePos = (x + 65, bigFont.getsize(dispTime)[1] + 12)
     draw.text(timeZonePos, timeZone, font=font, fill="#FFFF00")
 
     date_abr = f"{month} {dayNum}"
     datePos = list(timeZonePos)
-    datePos[0] = timeZonePos[0] + font.getsize(timeZone)[0]
+    datePos[0] = timeZonePos[0] + font.getsize(timeZone)[0] + 10
     datePos = tuple(datePos)
-    draw.text(datePos, date_abr, font=font, fill=white)
+    draw.text(datePos, date_abr, font=font, fill="#00FFFF")
 
 
 
