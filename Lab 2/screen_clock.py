@@ -74,6 +74,7 @@ def formatTime(s):
     secs = s % 60
     mins = s // 60
     hours = mins // 60
+    mins = mins % 60
 
     return "{:0>2d}h {:0>2d}m {:0>2d}s".format(int(hours), int(mins), int(secs))
 
