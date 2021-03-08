@@ -70,10 +70,10 @@ buttonA.switch_to_input()
 buttonB.switch_to_input()
 
 
-def formatTime(tim):
-    secs = tim % 60
-    mins = tim//60
-    hours = mins//60
+def formatTime(s):
+    secs = s % 60
+    mins = s // 60
+    hours = mins // 60
 
     return "{:0>2d}h {:0>2d}m {:0>2d}s".format(int(hours), int(mins), int(secs))
 
@@ -85,12 +85,11 @@ def stopwatch():
     started = False
     paused = False
 
-    hour = 0
-    mins = 0
     secs = 0
 
     lastPaused = 0.0
     pauseOffset = 0.0
+
     while True:
         # Draw a black filled box to clear the image.
         draw.rectangle((0, 0, width, height), outline=0, fill=0)
@@ -99,9 +98,10 @@ def stopwatch():
             stopwatchText = "00h 00m 00s"
 
         elif not paused:
-            stopwatchText = formatTime((time.time()-start_time) - pauseOffset)
+            stopwatchText = formatTime(secs)
             print(stopwatchText, end="", flush=True)
             print("\r", flush=True, end="")
+            secs += 1
 
         elif paused:
             pauseOffset += time.time()-lastPaused
@@ -115,8 +115,6 @@ def stopwatch():
                 started = True
                 start_time = time.time()
                 done, paused = False, False
-                hour = 0
-                mins = 0
                 secs = 0
                 lastPaused = 0.0
                 pauseOffset = 0.0
