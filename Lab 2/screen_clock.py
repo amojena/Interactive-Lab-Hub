@@ -112,9 +112,11 @@ while True:
 
 
     draw.text((x, -5), dispTime, font=bigFont, fill=white)
-    # draw.text((bigFont.getsize(hour)[0] + 10, -5), mins, font=bigFont, fill=white)
+    draw.text((x, bigFont.getsize(dispTime)[1] + 5), timeZone, font=font, fill=white)
 
-    draw.text((x, bigFont.getsize(hour)[1] + 5), timeZone, font=font, fill=white)
+    pie_bound = [(0, bigFont.getsize(dispTime)), (5, bigFont.getsize(dispTime)+5)]
+
+    draw.pieslice(pie_bound, 0, float(sec)/360.0, white)
 
 
     if buttonB.value and not buttonA.value:
