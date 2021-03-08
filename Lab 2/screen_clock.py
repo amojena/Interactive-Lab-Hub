@@ -71,83 +71,6 @@ buttonB.switch_to_input()
 
 # main("galxy.jpg")
 
-fills = ["#FFFFFF", "#000000"]
-white = "#FFFFFF"
-filler = 0
-
-timeIndex = 0
-
-
-
-while True:
-    # Draw a black filled box to clear the image.
-    draw.rectangle((0, 0, width, height), outline=0, fill=0)
-
-    #TODO: fill in here. You should be able to look in cli_clock.py and stats.py
-    y = 5
-    # cmd = "date"
-    # TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
-    # draw.text((x, y), TIME, font=font, fill=fills[filler%2])
-    # y += font.getsize(TIME)[1]
-    # draw.text((x, y), TIME, font=font, fill=fills[(filler+1)%2])
-
-
-    cmd = "TZ=\":US/Eastern\" date"
-    EST_TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
-
-    cmd = "TZ=\":US/Pacific\" date"
-    PST_TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
-
-    cmd = "TZ=\":US/Mountain\" date"
-    MST_TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
-
-    cmd = "TZ=\":US/Central\" date"
-    CET_TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
-
-    times = [EST_TIME, PST_TIME, MST_TIME, CET_TIME]
-
-    _, dayNum, month, year,  tim, _, timeZone = times[timeIndex].split()
-    hour, mins, sec = tim.split(":")
-    hour = str((int(hour) + 12) % 24)
-
-    dispTime = f"{hour}:{mins}"
-
-
-    draw.text((x, -5), dispTime, font=bigFont, fill=white)
-
-    timeZonePos = (x + 65, bigFont.getsize(dispTime)[1] + 12)
-    draw.text(timeZonePos, timeZone, font=font, fill="#FFFF00")
-
-    date_abr = f"{month} {dayNum}"
-    datePos = list(timeZonePos)
-    datePos[0] = timeZonePos[0] + font.getsize(timeZone)[0] + 10
-    datePos = tuple(datePos)
-    draw.text(datePos, date_abr, font=font, fill="#00FFFF")
-
-
-
-    y_pie =bigFont.getsize(dispTime)[1]
-    x0, y0 = 5, y_pie
-    x1 = 60
-    y1 = y0 + x1-x0
-    pie_bound = [(x0, y0), (x1, y1)]
-    draw.pieslice(pie_bound, 0, int(sec) * 6, white)
-    sx = (x1+x0)/2
-    sy = (y1+y0)/2
-    draw.text((sx-17, sy-15), sec, font=font, fill="#FF0000")
-
-
-
-
-    if buttonB.value and not buttonA.value:
-        timeIndex = (timeIndex + 1) % 4
-
-    if buttonA.value and not buttonB.value:
-        stopwatch()
-
-    # Display image.
-    disp.image(image, rotation)
-    time.sleep(1)
 
 def formatTime(tim):
     mins = tim//60
@@ -212,3 +135,86 @@ def stopwatch():
 
         if done:
             break
+
+
+def main():
+
+    fills = ["#FFFFFF", "#000000"]
+    white = "#FFFFFF"
+    filler = 0
+
+    timeIndex = 0
+
+
+
+    while True:
+        # Draw a black filled box to clear the image.
+        draw.rectangle((0, 0, width, height), outline=0, fill=0)
+
+        #TODO: fill in here. You should be able to look in cli_clock.py and stats.py
+        y = 5
+        # cmd = "date"
+        # TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
+        # draw.text((x, y), TIME, font=font, fill=fills[filler%2])
+        # y += font.getsize(TIME)[1]
+        # draw.text((x, y), TIME, font=font, fill=fills[(filler+1)%2])
+
+
+        cmd = "TZ=\":US/Eastern\" date"
+        EST_TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
+
+        cmd = "TZ=\":US/Pacific\" date"
+        PST_TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
+
+        cmd = "TZ=\":US/Mountain\" date"
+        MST_TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
+
+        cmd = "TZ=\":US/Central\" date"
+        CET_TIME = subprocess.check_output(cmd, shell=True).decode("utf-8")
+
+        times = [EST_TIME, PST_TIME, MST_TIME, CET_TIME]
+
+        _, dayNum, month, year,  tim, _, timeZone = times[timeIndex].split()
+        hour, mins, sec = tim.split(":")
+        hour = str((int(hour) + 12) % 24)
+
+        dispTime = f"{hour}:{mins}"
+
+
+        draw.text((x, -5), dispTime, font=bigFont, fill=white)
+
+        timeZonePos = (x + 65, bigFont.getsize(dispTime)[1] + 12)
+        draw.text(timeZonePos, timeZone, font=font, fill="#FFFF00")
+
+        date_abr = f"{month} {dayNum}"
+        datePos = list(timeZonePos)
+        datePos[0] = timeZonePos[0] + font.getsize(timeZone)[0] + 10
+        datePos = tuple(datePos)
+        draw.text(datePos, date_abr, font=font, fill="#00FFFF")
+
+
+
+        y_pie =bigFont.getsize(dispTime)[1]
+        x0, y0 = 5, y_pie
+        x1 = 60
+        y1 = y0 + x1-x0
+        pie_bound = [(x0, y0), (x1, y1)]
+        draw.pieslice(pie_bound, 0, int(sec) * 6, white)
+        sx = (x1+x0)/2
+        sy = (y1+y0)/2
+        draw.text((sx-17, sy-15), sec, font=font, fill="#FF0000")
+
+
+
+
+        if buttonB.value and not buttonA.value:
+            timeIndex = (timeIndex + 1) % 4
+
+        if buttonA.value and not buttonB.value:
+            stopwatch()
+
+        # Display image.
+        disp.image(image, rotation)
+        time.sleep(1)
+
+main()
