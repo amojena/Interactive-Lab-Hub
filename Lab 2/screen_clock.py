@@ -99,7 +99,7 @@ def stopwatch():
             stopwatchText = "00h 00m 00s"
 
         elif not paused:
-            stopwatchText = formatTime(time.time()-start_time - pauseOffset)
+            stopwatchText = formatTime(time.time()-start_time + pauseOffset)
             print(stopwatchText, end="", flush=True)
             print("\r", flush=True, end="")
 
