@@ -107,25 +107,19 @@ while True:
     _, dayNum, month, year,  tim, _, timeZone = times[timeIndex].split()
     hour, mins, sec = tim.split(":")
     hour = str((int(hour) + 12) % 24)
-    # print(times[timeIndex].split())
 
 
     draw.text((x, -5), hour, font=bigFont, fill=white)
     draw.text((bigFont.getsize(hour)[0] + 10, 10), mins, font=font, fill=white)
 
-    draw.text((x, bigFont.getsize(hour)[1] + 5), timeZone, font=font, fill=white)
+    draw.text((x, bigFont.getsize(hour)[1] + 5), timeZone, font=bigFont, fill=white)
 
 
     if buttonB.value and not buttonA.value:
         timeIndex = (timeIndex + 1) % 4
-        print("A")
 
     if buttonA.value and not buttonB.value:
         timeIndex = (timeIndex - 1) % 4
-        print("B")
-
-
-    filler += 1 % 2
 
     # Display image.
     disp.image(image, rotation)
