@@ -103,7 +103,8 @@ def stopwatch():
 
         elif not paused and not stopped:
             stopwatchText = formatTime(time.time()-start_time - pauseOffset)
-            print(stopwatchText, flush=True, end="")
+            print(stopwatchText)
+            print("\r", flush=True, end="")
 
         if paused:
             pauseOffset += time.time()-lastPaused
@@ -115,6 +116,7 @@ def stopwatch():
         if buttonB.value and not buttonA.value:
             if started is False:
                 started = True
+                print("let's go")
                 start_time = time.time()
                 done, paused, stopped = False, False, False
                 hour = 0
