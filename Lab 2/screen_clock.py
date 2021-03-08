@@ -101,7 +101,7 @@ def stopwatch():
         if started is False:
             stopwatchText = "00h:00m:00s"
 
-        elif not paused and not stopeed:
+        elif not paused and not stopped:
             stopwatchText = formatTime(time.time()-start_time - pauseOffset)
 
         if paused:
