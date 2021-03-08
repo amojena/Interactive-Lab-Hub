@@ -77,6 +77,8 @@ filler = 0
 
 timeIndex = 0
 
+
+
 while True:
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
@@ -146,3 +148,67 @@ while True:
     # Display image.
     disp.image(image, rotation)
     time.sleep(1)
+
+def formatTime(tim):
+    mins = tim//60
+    hours = mins//60
+    secs mins % 60
+
+    return "{:0>2d}h:{:0>2d}m:{:0>2d}s".format(int(hours), int(mins), int(secs))
+
+def stopwatch():
+
+    done = False
+    started = False
+    paused = False
+    stopped = False
+
+    hour = 0
+    mins = 0
+    secs = 0
+
+    lastPaused = 0.0
+    pauseOffset = 0.0
+    while True:
+        # Draw a black filled box to clear the image.
+        draw.rectangle((0, 0, width, height), outline=0, fill=0)
+
+        if started is False:
+            stopwatchText = "00h:00m:00s"
+
+        elif not paused and not stopeed:
+            stopwatchText = formatTime(time.time()-start_time - pauseOffset)
+
+        if paused:
+            pauseOffset += time.time()-lastPaused
+
+
+        draw.text((0,30), stopwatchText, font=font, filler=white)
+
+
+        if buttonB.value and not buttonA.value:
+            if started is False:
+                started = True
+                start_time = time.time()
+                done, paused, stopped = False, False, False
+                hour = 0
+                mins = 0
+                secs = 0
+                lastPaused = 0.0
+                pauseOffset = 0.0
+
+            if not paused:
+                lastPaused = time.time()
+
+            paused != paused
+
+        if buttonA.value and not buttonB.value:
+            if stopped or not started:
+                done = True
+            elif paused:
+                started = False
+            elif not paused:
+                paused = True
+
+        if done:
+            break
