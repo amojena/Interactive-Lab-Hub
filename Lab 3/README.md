@@ -80,8 +80,15 @@ The system should:
 * require participants to speak to it. 
 
 *Document how the system works*
+The system is a "work environment helper/assistant" that, when spoken to, can change the lighting in the room or play music on Spotify. The controller, has a USB microphone that is constantly waiting for audio input and will output an audio response. Since it is a prototype, the user will have to wear headphones to listen to the audio output of the system, the music from spotify will be played from the computer that the user is using to work. It will also respond if it senses that it is moved.
 
 *Include videos or screencaptures of both the system and the controller.*
+
+## System
+
+
+## Controller
+<img src="controller_screenshot.PNG" >
 
 ## Test the system
 Try to get at least two people to interact with your system. (Ideally, you would inform them that there is a wizard _after_ the interaction, but we recognize that can be hard.)
