@@ -85,10 +85,13 @@ The system is a "work environment helper/assistant" that, when spoken to, can ch
 *Include videos or screencaptures of both the system and the controller.*
 
 ## System
+<img src="IMG-1656.jpg" height ="400">
+<img src="IMG-1657.jpg" height ="400">
 
 
 ## Controller
-<img src="controller_screenshot.PNG" >
+The controller will be the webpage activated by [app.py](./demo/app.py) in the [demo](./demo) folder.
+<img src="controller_screenshot.PNG" height ="500">
 
 ## Test the system
 Try to get at least two people to interact with your system. (Ideally, you would inform them that there is a wizard _after_ the interaction, but we recognize that can be hard.)
