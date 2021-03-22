@@ -95,22 +95,21 @@ The controller will be the webpage activated by [app.py](./demo/app.py) in the [
 
 ## Test the system
 Try to get at least two people to interact with your system. (Ideally, you would inform them that there is a wizard _after_ the interaction, but we recognize that can be hard.)
+Participant 1: Irene (knew about the wizarding)
+Participant 2: Shreya (did now know about the wizarding)
 
 Answer the following:
 
 ### What worked well about the system and what didn't?
-*your answer here*
+One of the participants didn't know I was wizarding the system and believed that the system was actually controlling the LED lights in the room and the Spotify on the computer in front of her. Once the participant realized what was happening behind the scenes she made a comment acknowledging why the system response was somewhat slow since I was writing the messages she was hearing in realtime.
 
 ### What worked well about the controller and what didn't?
-
-*your answer here*
+I tested the system in my apartment so I wasn't able to properly use the eavsdrop feature well. It was distracting to be able to hear the person because they were in the room next to me plus hearing them through the raspberry pi but that was good evidence that the microphone was working.
 
 ### What lessons can you take away from the WoZ interactions for designing a more autonomous version of the system?
-
-*your answer here*
+Both participants appreciated that the system would tell them when it was processing a command and weren't just being ignored. Since I was controlling 3 components at once, it took me a few seconds to play a certain song or set the LED lights to display the pattern they would ask, etc. Therefore, I would send messages saying something like "Ok, searching for music by X artists on Spotify" which would give me some time to distract them. Based on this, I think a general convention could be to give the user some sort of feedback before performing the action they requested.
 
 
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
-
-*your answer here*
+I think a camera would have been nice just to see the reactions. The participant that didn't know about the wizarding had no instruction other than just sit down and put on some headphones. Ideally, in a business environment the user would know what they're product would do. I also had participants ask for the lights to be turned on and later ask to change how they were behaving. Also, these experiments were lasted 2-3 minutes. In a longer time setting, a camera could be used to interpret emotion and the system could ask if they weren't enjoying the song, if they were frustrated with the light settings, etc.
 
