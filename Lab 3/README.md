@@ -1,4 +1,4 @@
-# You're a wizard, [Student Name Here]
+# You're a wizard, Antonio (Griffyndor)
 
 <img src="https://pbs.twimg.com/media/Cen7qkHWIAAdKsB.jpg" height="400">
 
@@ -70,7 +70,11 @@ Create a system that runs on the Raspberry Pi that takes in one or more sensors 
 
 ## Share your idea sketches with Zoom Room mates and get feedback
 
-*what was the feedback? Who did it come from?*
+<img src="sketch.jpg" height ="400">
+
+Irene pointed out that this would be an interesting thing to build instead of buying an actual smart home "central" device. It also lends itself to have a more customizable aesthetic. She also suggested I think about how I can implement the accelerometer.
+
+Rui suggested that it could have a physical component that the user could interact with that could serve something like a fidget. Maybe the joystick could be a trigger for a mindless/relaxing game on the display.
 
 ## Prototype your system
 
@@ -109,7 +113,8 @@ I tested the system in my apartment so I wasn't able to properly use the eavsdro
 ### What lessons can you take away from the WoZ interactions for designing a more autonomous version of the system?
 Both participants appreciated that the system would tell them when it was processing a command and weren't just being ignored. Since I was controlling 3 components at once, it took me a few seconds to play a certain song or set the LED lights to display the pattern they would ask, etc. Therefore, I would send messages saying something like "Ok, searching for music by X artists on Spotify" which would give me some time to distract them. Based on this, I think a general convention could be to give the user some sort of feedback before performing the action they requested.
 
-
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 I think a camera would have been nice just to see the reactions. The participant that didn't know about the wizarding had no instruction other than just sit down and put on some headphones. Ideally, in a business environment the user would know what they're product would do. I also had participants ask for the lights to be turned on and later ask to change how they were behaving. Also, these experiments were lasted 2-3 minutes. In a longer time setting, a camera could be used to interpret emotion and the system could ask if they weren't enjoying the song, if they were frustrated with the light settings, etc.
+
+The accelerometer was connected to the controller and ready for use. I couldn't think of a use for it for this experiment other than to use as a cue to say something to the user. For example, if they moved the position of the controller I could have responded with "Oh sorry, was I in the way?" and ask 1-2 more probing questions as to what a better setup would have been.
 
