@@ -115,7 +115,7 @@ def main():
         # Draw a black filled box to clear the image.
         f = (randint(0,255), randint(0,255), randint(0,255), 250)
         draw.rectangle((0, 0, width, height), outline=0, fill=f)
-                draw.rectangle((0, 0, 26, 134))
+        draw.rectangle((0, 0, 26, 134))
 
 
         for circle in topCircles:
