@@ -78,7 +78,7 @@ def main():
         draw.rectangle((0, 0, width, height), outline=0, fill=0)
         # input_x = int(input("X value:"))
         x = 220
-        offset = input("X offset: ")
+        offset = int(input("X offset: "))
         draw.ellipse([(x, 5), (x+offset,15)], fill="#FF0000", outline="#0000FF")
 
         # Display image.
