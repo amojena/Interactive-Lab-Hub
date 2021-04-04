@@ -104,7 +104,7 @@ def main():
     fill_colors = ["#67ee8a", "#aeb1f9", "#f6acbb", "#eb9f2a"]
     circle_start_pos = [(x, y + offset * i, x + radius, (y + offset * i)+radius) for i in range(4)]
 
-    topCircles = [new Circle(circle_start_pos[i], fill_colors[i]) for i in range(4)]
+    topCircles = [Circle(circle_start_pos[i], fill_colors[i]) for i in range(4)]
     activeCircles = []
 
 
@@ -122,7 +122,7 @@ def main():
 
         if randint(1,10) <= 3:
             ind = randint(0,3)
-            activeCircles.append(new Circle(circle_start_pos[ind], fill_colors[ind]))
+            activeCircles.append(Circle(circle_start_pos[ind], fill_colors[ind]))
 
 
         # Display image.
