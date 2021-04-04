@@ -128,8 +128,6 @@ def main():
             ind = randint(0,3)
             activeCircles.append(Circle(circle_start_pos[ind], fill_colors[ind]))
 
-        w = int(input("width: "))
-        h = int(input("height: "))
         draw.rectangle((0, 0, 26, 134))
 
 
