@@ -73,9 +73,11 @@ def drawOriginCircles():
     radius = 20
     offset = 34
 
+    fill_colors = ["67ee8a", "aeb1f9", "f6acbb", "#e582ab"]
+
     for i in range(4):
         y2 = y + offset*i
-        draw.ellipse([(x, y2), (x+radius, y2 + radius)], fill="#FF0000", outline="#FFFFFF")
+        draw.ellipse([(x, y2), (x+radius, y2 + radius)], fill=fill_colors[i], outline="#FFFFFF")
 
 
 
