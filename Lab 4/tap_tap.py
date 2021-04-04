@@ -124,9 +124,13 @@ def main():
             ind = randint(0,3)
             activeCircles.append(Circle(circle_start_pos[ind], fill_colors[ind]))
 
+        w = int(input("width: "))
+        h = int(input("height: "))
+        draw.rectangle((0, 0, w, h))
+
 
         # Display image.
         disp.image(image, rotation)
-        time.sleep(0.5)
+        time.sleep(0.7)
 
 main()
