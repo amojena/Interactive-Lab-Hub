@@ -77,7 +77,6 @@ class Circle:
         self.y2 = pos[3]
         self.speed = 15
         self.color = color
-        print("Circle is color: {}".format(self.color))
 
 
     def moveDown(self):
@@ -115,10 +114,10 @@ def main():
 
 
         for circle in topCircles:
-            draw.ellipse(circle.getPos, fill=circle.getColor, outline="#FFFFFF")
+            draw.ellipse(circle.getPos(), fill=circle.getColor(), outline="#FFFFFF")
 
         for circle in activeCircles:
-            draw.ellipse(circle.getPos, fill=circle.getColor, outline="#FFFFFF")
+            draw.ellipse(circle.getPos(), fill=circle.getColor(), outline="#FFFFFF")
             circle.moveDown()
 
         if randint(1,10) <= 3:
