@@ -73,7 +73,7 @@ def drawOriginCircles():
     radius = 20
     offset = 34
 
-    fill_colors = ["67ee8a", "aeb1f9", "f6acbb", "#e582ab"]
+    fill_colors = ["#67ee8a", "#aeb1f9", "#f6acbb", "#e582ab"]
 
     for i in range(4):
         y2 = y + offset*i
