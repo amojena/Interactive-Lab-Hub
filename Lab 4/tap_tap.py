@@ -70,14 +70,14 @@ buttonA.switch_to_input()
 buttonB.switch_to_input()
 
 class Circle:
-    def __init__(self, pos, color):
+    def __init__(self, pos, color, id):
         self.x1 = pos[0]
         self.y1 = pos[1]
         self.x2 = pos[2]
         self.y2 = pos[3]
-        self.speed = 18
+        self.speed = 18 # rate at which circle will move down the screen
         self.color = color
-
+        self.id = id # column # used to compare with button pressed
 
     def moveDown(self):
         self.x1 -= self.speed
@@ -92,12 +92,11 @@ class Circle:
     def getColor(self):
         return self.color
 
-def drawOriginCircles():
-    y2 = [y + offset* i for i in range(4)]
-    for i in range(4):
-        draw.ellipse([(x, y2), (x+radius, y2 + radius)], fill=fill_colors[i], outline="#FFFFFF")
+    def draw():
+        draw.ellipse(self.getPos(), fill=self.color, outlife="#FFFFFF")
 
-
+    def getID():
+        return self.id
 
 
 def main():
@@ -106,32 +105,35 @@ def main():
     offset = 34
     fill_colors = ["#67ee8a", "#aeb1f9", "#f6acbb", "#eb9f2a"]
     circle_start_pos = [(x, y + offset * i, x + radius, (y + offset * i)+radius) for i in range(4)]
+    action_w, action_h = 26, 134
 
-    topCircles = [Circle(circle_start_pos[i], fill_colors[i]) for i in range(4)]
+    topCircles = [Circle(circle_start_pos[i], fill_colors[i], i) for i in range(4)]
     activeCircles = []
 
 
     while True:
         # Draw a black filled box to clear the image.
-        f = (randint(0,255), randint(0,255), randint(0,255), 250)
-        draw.rectangle((0, 0, width, height), outline=0, fill=f)
-        draw.rectangle((0, 0, 26, 134))
-
+        draw.rectangle((0, 0, width, height), outline=0, fill="#DFE3EC")
+        draw.rectangle((0, 0, action_w, action_h))
 
         for circle in topCircles:
-            draw.ellipse(circle.getPos(), fill=circle.getColor(), outline="#FFFFFF")
+            circle.draw()
 
         for circle in activeCircles:
-            draw.ellipse(circle.getPos(), fill=circle.getColor(), outline="#FFFFFF")
+            circle.draw()
             circle.moveDown()
 
+        # 50% chance of a new circle spawning
         if randint(1,10) <= 5:
             ind = randint(0,3)
-            activeCircles.append(Circle(circle_start_pos[ind], fill_colors[ind]))
+            activeCircles.append(Circle(circle_start_pos[ind], fill_colors[ind], ind))
 
-
-
-
+        ## TODO: if circle has reached end of screen, remove from list to stop render
+        if len(activeCircles) >= 1 and activeCircles[0].getCenterX() <= action_w/2:
+            # check if the appropriate button is pressed by now
+                # green led and score += 1 if yes
+                # red led if no
+            activeCircles.pop(0)
 
 
         # Display image.
