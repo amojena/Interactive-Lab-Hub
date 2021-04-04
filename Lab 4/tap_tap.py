@@ -83,7 +83,7 @@ def main():
 
         offset = int(input("New circle offset: "))
         y2 = y + offset
-        draw.ellipse([(x, y), (x+radius, y + radius)], fill="#FF0000", outline="#0000FF")
+        draw.ellipse([(x, y2), (x+radius, y2 + radius)], fill="#FF0000", outline="#0000FF")
 
         # Display image.
         disp.image(image, rotation)
