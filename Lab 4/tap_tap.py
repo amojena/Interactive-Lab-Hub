@@ -79,7 +79,8 @@ def main():
         # input_x = int(input("X value:"))
         x = 220
         offset = int(input("X offset: "))
-        draw.ellipse([(x, 5), (x+offset,15)], fill="#FF0000", outline="#0000FF")
+        y = 5
+        draw.ellipse([(x, y), (x+offset, y + offset)], fill="#FF0000", outline="#0000FF")
 
         # Display image.
         disp.image(image, rotation)
