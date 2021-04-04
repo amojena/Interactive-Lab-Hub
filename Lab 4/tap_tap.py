@@ -124,7 +124,7 @@ def main():
             circle.moveDown()
 
         # 50% chance of a new circle spawning
-        if randint(1,10) <= 5:
+        if randint(1,10) <= 6:
             ind = randint(0,3)
             activeCircles.append(Circle(circle_start_pos[ind], fill_colors[ind], ind))
 
