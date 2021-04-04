@@ -77,9 +77,9 @@ def main():
         # Draw a black filled box to clear the image.
         draw.rectangle((0, 0, width, height), outline=0, fill=0)
         # input_x = int(input("X value:"))
-        x = 220
+        x = 215
         offset = int(input("X offset: "))
-        y = 5
+        y = 20
         draw.ellipse([(x, y), (x+offset, y + offset)], fill="#FF0000", outline="#0000FF")
 
         # Display image.
