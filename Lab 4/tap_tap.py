@@ -5,6 +5,13 @@ import board
 from PIL import Image, ImageDraw, ImageFont
 import adafruit_rgb_display.st7789 as st7789
 from random import randint
+import busio
+
+import adafruit_mpr121
+
+i2c = busio.I2C(board.SCL, board.SDA)
+
+mpr121 = adafruit_mpr121.MPR121(i2c)
 
 
 # Configuration for CS and DC pins (these are FeatherWing defaults on M0/M4):
@@ -130,6 +137,10 @@ def main():
 
         ## TODO: if circle has reached end of screen, remove from list to stop render
         if len(activeCircles) >= 1 and activeCircles[0].getCenterX() <= action_w/2:
+
+            for i in range(12):
+                if mpr121[i].value:
+                    print(f"Banana {i} touched!")
             # check if the appropriate button is pressed by now
                 # green led and score += 1 if yes
                 # red led if no
