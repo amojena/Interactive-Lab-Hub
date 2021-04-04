@@ -113,8 +113,9 @@ def main():
 
     while True:
         # Draw a black filled box to clear the image.
-        f = (randint(0,255), randint(0,255), randint(0,255), 40)
+        f = (randint(0,255), randint(0,255), randint(0,255), 250)
         draw.rectangle((0, 0, width, height), outline=0, fill=f)
+                draw.rectangle((0, 0, 26, 134))
 
 
         for circle in topCircles:
@@ -128,7 +129,6 @@ def main():
             ind = randint(0,3)
             activeCircles.append(Circle(circle_start_pos[ind], fill_colors[ind]))
 
-        draw.rectangle((0, 0, 26, 134))
 
 
 
