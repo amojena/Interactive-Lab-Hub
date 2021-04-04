@@ -71,11 +71,11 @@ buttonB.switch_to_input()
 def drawOriginCircles():
     x, y = 215, 5
     radius = 20
-    offset = int(input("Offset: "))
+    offset = 34
 
     for i in range(4):
         y2 = y + offset*i
-        draw.ellipse([(x, y2), (x+radius, y2 + radius)], fill="#FF0000", outline="#0000FF")
+        draw.ellipse([(x, y2), (x+radius, y2 + radius)], fill="#FF0000", outline="#FFFFFF")
 
 
 
