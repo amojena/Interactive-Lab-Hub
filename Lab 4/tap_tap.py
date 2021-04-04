@@ -68,6 +68,16 @@ buttonB = digitalio.DigitalInOut(board.D24)
 buttonA.switch_to_input()
 buttonB.switch_to_input()
 
+def drawOriginCircles():
+    x, y = 215, 5
+    radius = 20
+    offset = 30
+
+    for i in range(4):
+        y2 = y + offset*i
+        draw.ellipse([(x, y2), (x+radius, y2 + radius)], fill="#FF0000", outline="#0000FF")
+
+
 
 def main():
 
@@ -77,13 +87,15 @@ def main():
         # Draw a black filled box to clear the image.
         draw.rectangle((0, 0, width, height), outline=0, fill=0)
         # input_x = int(input("X value:"))
-        x, y = 215, 5
-        radius = 20
-        draw.ellipse([(x, y), (x+radius, y + radius)], fill="#FF0000", outline="#0000FF")
+        # x, y = 215, 5
+        # radius = 20
+        # draw.ellipse([(x, y), (x+radius, y + radius)], fill="#FF0000", outline="#0000FF")
+        #
+        # offset = 30
+        # y2 = y + offset
+        # draw.ellipse([(x, y2), (x+radius, y2 + radius)], fill="#FF0000", outline="#0000FF")
 
-        offset = int(input("New circle offset: "))
-        y2 = y + offset
-        draw.ellipse([(x, y2), (x+radius, y2 + radius)], fill="#FF0000", outline="#0000FF")
+        drawOriginCircles()
 
         # Display image.
         disp.image(image, rotation)
