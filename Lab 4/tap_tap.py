@@ -77,6 +77,7 @@ class Circle:
         self.y2 = pos[3]
         self.speed = 15
         self.color = color
+        print("Circle is color: {}".format(self.color))
 
 
     def moveDown(self):
@@ -87,7 +88,6 @@ class Circle:
         return [(self.x1, self.y1), (self.x2, self.y2)]
 
     def getColor(self):
-        print(self.color)
         return self.color
 
 def drawOriginCircles():
