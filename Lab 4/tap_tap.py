@@ -77,7 +77,9 @@ def main():
         # Draw a black filled box to clear the image.
         draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
-        draw.ellipse([(50, 5), (60,15)], fill="#FF0000", outline="#0000FF")
+        input_x = input("X value:")
+        offset = 10
+        draw.ellipse([(input_x, 5), (input_x+offset,15)], fill="#FF0000", outline="#0000FF")
 
         # Display image.
         disp.image(image, rotation)
