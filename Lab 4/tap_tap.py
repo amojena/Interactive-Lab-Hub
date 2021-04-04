@@ -75,7 +75,7 @@ class Circle:
         self.y1 = pos[1]
         self.x2 = pos[2]
         self.y2 = pos[3]
-        self.speed = 15
+        self.speed = 20
         self.color = color
 
 
@@ -120,13 +120,13 @@ def main():
             draw.ellipse(circle.getPos(), fill=circle.getColor(), outline="#FFFFFF")
             circle.moveDown()
 
-        if randint(1,10) <= 3:
+        if randint(1,10) <= 5:
             ind = randint(0,3)
             activeCircles.append(Circle(circle_start_pos[ind], fill_colors[ind]))
 
 
         # Display image.
         disp.image(image, rotation)
-        time.sleep(1)
+        time.sleep(0.5)
 
 main()
