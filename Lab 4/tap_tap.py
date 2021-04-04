@@ -4,6 +4,7 @@ import digitalio
 import board
 from PIL import Image, ImageDraw, ImageFont
 import adafruit_rgb_display.st7789 as st7789
+from random import random.randint
 
 
 # Configuration for CS and DC pins (these are FeatherWing defaults on M0/M4):
@@ -68,36 +69,61 @@ buttonB = digitalio.DigitalInOut(board.D24)
 buttonA.switch_to_input()
 buttonB.switch_to_input()
 
+class Circle:
+    def __init__(self, pos, color):
+        self.x1 = pos[0]
+        self.y1 = pos[1]
+        self.x2 = pos[2]
+        self.y2 = pos[3]
+        self.speed = 15
+        self.color = color
+
+
+    def moveDown(self):
+        self.x1 -= self.speed
+        self.x2 -= self.speed
+
+    def getPos(self):
+        return [(self.x1, self.y1), (self.x2, self.y2)]
+
+    def getColor(self):
+        return self.color
+
 def drawOriginCircles():
-    x, y = 215, 5
-    radius = 20
-    offset = 34
-
-    fill_colors = ["#67ee8a", "#aeb1f9", "#f6acbb", "#eb9f2a"]
-
+    y2 = [y + offset* i for i in range(4)]
     for i in range(4):
-        y2 = y + offset*i
         draw.ellipse([(x, y2), (x+radius, y2 + radius)], fill=fill_colors[i], outline="#FFFFFF")
 
 
 
-def main():
 
+def main():
+    x, y = 215, 5
+    radius = 20
+    offset = 34
+    fill_colors = ["#67ee8a", "#aeb1f9", "#f6acbb", "#eb9f2a"]
+    circle_start_pos = [(x, y + offset * i, x + radius, (y + offset * i)+radius) for i in range(4)]
+
+    topCircles = [new Circle(circle_start_pos[i], fill_colors[i]) for i in range(4)]
+    activeCircles = []
 
 
     while True:
         # Draw a black filled box to clear the image.
         draw.rectangle((0, 0, width, height), outline=0, fill=0)
-        # input_x = int(input("X value:"))
-        # x, y = 215, 5
-        # radius = 20
-        # draw.ellipse([(x, y), (x+radius, y + radius)], fill="#FF0000", outline="#0000FF")
-        #
-        # offset = 30
-        # y2 = y + offset
-        # draw.ellipse([(x, y2), (x+radius, y2 + radius)], fill="#FF0000", outline="#0000FF")
 
-        drawOriginCircles()
+
+        for circle in topCircles:
+            draw.ellipse(circle.getPos, fill=self.getColor, outline="#FFFFFF")
+
+        for circle in activeCircles:
+            draw.ellipse(circle.getPos, fill=self.getColor, outline="#FFFFFF")
+            circle.moveDown()
+
+        if randint(1,10) <= 3:
+            ind = randint(0,3)
+            activeCircles.append(new Circle(circle_start_pos[ind], fill_colors[ind]))
+
 
         # Display image.
         disp.image(image, rotation)
