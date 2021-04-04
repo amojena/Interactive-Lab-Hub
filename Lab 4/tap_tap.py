@@ -114,10 +114,10 @@ def main():
 
 
         for circle in topCircles:
-            draw.ellipse(circle.getPos, fill=self.getColor, outline="#FFFFFF")
+            draw.ellipse(circle.getPos, fill=circle.getColor, outline="#FFFFFF")
 
         for circle in activeCircles:
-            draw.ellipse(circle.getPos, fill=self.getColor, outline="#FFFFFF")
+            draw.ellipse(circle.getPos, fill=circle.getColor, outline="#FFFFFF")
             circle.moveDown()
 
         if randint(1,10) <= 3:
