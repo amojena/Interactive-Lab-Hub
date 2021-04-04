@@ -92,10 +92,10 @@ class Circle:
     def getColor(self):
         return self.color
 
-    def draw():
+    def draw(self):
         draw.ellipse(self.getPos(), fill=self.color, outlife="#FFFFFF")
 
-    def getID():
+    def getID(self):
         return self.id
 
 
