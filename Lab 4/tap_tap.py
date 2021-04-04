@@ -113,7 +113,7 @@ def main():
 
     while True:
         # Draw a black filled box to clear the image.
-        f = (randint(0,255), randint(0,255), randint(0,255), 100)
+        f = (randint(0,255), randint(0,255), randint(0,255), 40)
         draw.rectangle((0, 0, width, height), outline=0, fill=f)
 
 
