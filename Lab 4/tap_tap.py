@@ -71,7 +71,7 @@ buttonB.switch_to_input()
 def drawOriginCircles():
     x, y = 215, 5
     radius = 20
-    offset = 30
+    offset = input("Offset: ")
 
     for i in range(4):
         y2 = y + offset*i
