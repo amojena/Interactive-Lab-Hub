@@ -75,7 +75,7 @@ class Circle:
         self.y1 = pos[1]
         self.x2 = pos[2]
         self.y2 = pos[3]
-        self.speed = 20
+        self.speed = 18
         self.color = color
 
 
@@ -85,6 +85,9 @@ class Circle:
 
     def getPos(self):
         return [(self.x1, self.y1), (self.x2, self.y2)]
+
+    def getCenterX(self):
+        return (self.x2 + self.x1)/2
 
     def getColor(self):
         return self.color
@@ -110,7 +113,8 @@ def main():
 
     while True:
         # Draw a black filled box to clear the image.
-        draw.rectangle((0, 0, width, height), outline=0, fill=0)
+        f = (randint(0,255), randint(0,255), randint(0,255), 100)
+        draw.rectangle((0, 0, width, height), outline=0, fill=)
 
 
         for circle in topCircles:
@@ -126,7 +130,10 @@ def main():
 
         w = int(input("width: "))
         h = int(input("height: "))
-        draw.rectangle((0, 0, w, h))
+        draw.rectangle((0, 0, 26, 134))
+
+
+
 
 
         # Display image.
