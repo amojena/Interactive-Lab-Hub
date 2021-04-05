@@ -7,17 +7,17 @@ For lab this week, we focus on the prototyping the physical look and feel of the
 ## Prep
 
 1. Pull the new Github Repo.
-2. Readings: 
+2. Readings:
 
 * [What do prototypes prototype?](https://www.semanticscholar.org/paper/What-do-Prototypes-Prototype-Houde-Hill/30bc6125fab9d9b2d5854223aeea7900a218f149)
 
-* [Paper prototyping](https://www.uxpin.com/studio/blog/paper-prototyping-the-practical-beginners-guide/) is used by UX designers to quickly develop interface ideas and run them by people before any programming occurs. 
+* [Paper prototyping](https://www.uxpin.com/studio/blog/paper-prototyping-the-practical-beginners-guide/) is used by UX designers to quickly develop interface ideas and run them by people before any programming occurs.
 
-* [Cardboard prototypes](https://www.youtube.com/watch?v=k_9Q-KDSb9o) help interactive product designers to work through additional issues, like how big something should be, how it could be carried, where it would sit. 
+* [Cardboard prototypes](https://www.youtube.com/watch?v=k_9Q-KDSb9o) help interactive product designers to work through additional issues, like how big something should be, how it could be carried, where it would sit.
 
 * [Tips to Cut, Fold, Mold and Papier-Mache Cardboard](https://makezine.com/2016/04/21/working-with-cardboard-tips-cut-fold-mold-papier-mache/) from Make Magazine.
 
-* [Surprisingly complicated forms](https://www.pinterest.com/pin/50032245843343100/) can be built with paper, cardstock or cardboard.  The most advanced and challenging prototypes to prototype with paper are [cardboard mechanisms](https://www.pinterest.com/helgangchin/paper-mechanisms/) which move and change. 
+* [Surprisingly complicated forms](https://www.pinterest.com/pin/50032245843343100/) can be built with paper, cardstock or cardboard.  The most advanced and challenging prototypes to prototype with paper are [cardboard mechanisms](https://www.pinterest.com/helgangchin/paper-mechanisms/) which move and change.
 
 <img src="https://dysonthedesigner.weebly.com/uploads/2/6/3/9/26392736/427342_orig.jpg"  width="200" > Dyson Vacuum cardboard prototypes
 
@@ -31,7 +31,7 @@ For lab this week, we focus on the prototyping the physical look and feel of the
 1. Found objects and materials--like bananas--we're not saying that to be funny.
 
 
-### Deliverables for this lab are: 
+### Deliverables for this lab are:
 1. Sketches/photos of device designs
 1. "Looks like" prototypes: show us what how the device should look, feel, sit, weigh, etc.
 3. "Works like" prototypes: show us what the device can do
@@ -44,18 +44,18 @@ Here are the parts of the assignment
 
 A) [Capacitive Sensing](#part-a)
 
-B) [OLED screen](#part-b) 
+B) [OLED screen](#part-b)
 
 C) [Paper Display](#part-c)
 
-D) [Wizard the device](#part-d-wizard-the-device) 
+D) [Wizard the device](#part-d-wizard-the-device)
 
 E) [Costume the device](#part-e-costume-the-device)
 
 F) [Record the interaction](#part-f-record)
 
 ## The Report
-This readme.md page in your own repository should be edited to include the work you have done. You can delete everything but the headers and the sections between the **stars**. Write the answers to the questions under the starred sentences. 
+This readme.md page in your own repository should be edited to include the work you have done. You can delete everything but the headers and the sections between the **stars**. Write the answers to the questions under the starred sentences.
 
 Include any material that explains what you did in this lab hub folder, and link it in the readme.
 
@@ -79,7 +79,7 @@ Plug in the capacitive sensor board with the qwiic connector. Connect your banan
 I've connected my banana's* to pads 6 and 10. When you run the code and touch a banana the terminal will print out the following
 
 ```
-(circuitpython) pi@ixe00:~/Interactive-Lab-Hub/Lab 4 $ python cap_test.py 
+(circuitpython) pi@ixe00:~/Interactive-Lab-Hub/Lab 4 $ python cap_test.py
 Banana 10 touched!
 Banana 6 touched!
 ```
@@ -117,9 +117,9 @@ It holds a pi and usb power supply, and provides a front stage on which to put w
 This design can be made by scoring a long strip of corrugated cardboard of width X, with the following measurements:
 
 | Y height of box <br> <sub><sup>- thickness of cardboard</sup></sub> | Z  depth of box <br><sub><sup>- thickness of cardboard</sup></sub> | Y height of box  | Z  depth of box | H height of faceplate <br><sub><sup>* * * * * (don't make this too short) * * * * *</sup></sub>|
-| --- | --- | --- | --- | --- | 
+| --- | --- | --- | --- | --- |
 
-Fold the first flap of the strip so that it sits flush against the back of the face plate, and tape, velcro or hot glue it in place. This will make a H x X interface, with a box of Z x X footprint (which you can adapt to the things you want to put in the box) and a height Y in the back. 
+Fold the first flap of the strip so that it sits flush against the back of the face plate, and tape, velcro or hot glue it in place. This will make a H x X interface, with a box of Z x X footprint (which you can adapt to the things you want to put in the box) and a height Y in the back.
 
 Here is an example:
 
@@ -127,7 +127,7 @@ Here is an example:
 
 
 Make a paper display for your project that communicates the state of the Pi and a sensor. Ideally you should design it so that you can slide the Pi out to work on the circuit or programming, and then slide it back in and reattach a few wires to be back in operation.
- 
+
 **a. Document the design for your paper display.** (e.g. if you had to make it again from scratch, what information would you need?). Include interim iterations (or at least tell us about them).
 
 **b. Make a video of your paper display in action.**
@@ -150,7 +150,7 @@ Design a system with the Pi and anything from your kit with a focus on form, and
 Following exploration and reflection from Part 1, complete the "looks like," "works like" and "acts like" prototypes for your design.
 
 Reiterating:
-### Deliverables for this lab are: 
+### Deliverables for this lab are:
 1. Sketches/photos of device designs
 1. "Looks like" prototypes: show us what how the device should look, feel, sit, weigh, etc.
 3. "Works like" prototypes: show us what the device can do
@@ -158,3 +158,27 @@ Reiterating:
 5. Submit these in the lab 4 folder of your class [Github page], either as links or uploaded files. Each group member should post their own copy of the work to their own Lab Hub, even if some of the work is the same for each person in the group.
 
 
+
+### Sketches/Photos of device design
+The original idea of this device would be a suitcase-like object. Once it's opened, it would show a two-sided game like Battleship. In the middle there would be two screens, one facing each player that would show circles that correspond to buttons on the inside of the board. The circles on the screen would be rendered with a rhythm in mind so that users have to tap the buttons to a beat (like Dance Dance Revolution).
+
+[Image]
+
+The prototype below shows the general idea of what one side of the board would look like. The prototype was built out of a cardboard box (thanks USPS), a raspberry pi (RPi), an Adafruit capactive sensor, and, conductive tape and paper.
+
+### Looks Like
+As mentioned, above the design would be more of a suitcase. Originally when building the prototype, the design just assumed the RPi and capactitive sensor would be attached to the cardboard box somewhat distant from each other. The reasoning behind this was that the display screen on the RPi would cover most of the top half of the board and the buttons would conver the bottom half. Along the way, I decided to make a placeholder for the RPi in which I found suitable I could tape the capacitive sensor on top (picture below). Hence, the box ended up occupying much more space than it needs to.
+
+[Images]
+
+
+As you can see, this box could easily be cut in half - making it more manageable for the user.
+
+### Works like
+The device should be able to render circles ("notes") in a musical pattern and have the accompanying sounds with it. Moreover, it would give the user feedback during the song (i.e. score counter, audiovisual feedback, etc.). Ideally, the user wouldn't immediately jump into the game. Once it has started, there would be a good UX design that would allow the user to choose the difficulty of the game, and other settings.
+
+
+### Acts Like  
+For the purpose of this lab, the prototype simulates what a mid-game scenario would look like (missing sound, feedback and score system).
+
+[Video]
