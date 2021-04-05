@@ -169,9 +169,9 @@ The prototype below shows the general idea of what one side of the board would l
 ### Looks Like
 As mentioned, above the design would be more of a suitcase. Originally when building the prototype, the design just assumed the RPi and capactitive sensor would be attached to the cardboard box somewhat distant from each other. The reasoning behind this was that the display screen on the RPi would cover most of the top half of the board and the buttons would conver the bottom half. Along the way, I decided to make a placeholder for the RPi in which I found suitable I could tape the capacitive sensor on top (picture below). Hence, the box ended up occupying much more space than it needs to.
 
-<img src="https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%204/img/IMG_1707.HEIC"  width="250"/>
-<img src="https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%204/img/IMG_1708.HEIC?raw=true"  width="250"/>
-<img src="https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%204/img/IMG_1700.HEIC?raw=true"  width="250"/>
+<img src="https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%204/img/IMG_1707.JPEG"  width="250"/>
+<img src="https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%204/img/IMG_1708.JPEG"  width="250"/>
+<img src="https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%204/img/IMG_1700.JPEG"  width="250"/>
 
 
 As you can see, this box could easily be cut in half - making it more manageable for the user.
