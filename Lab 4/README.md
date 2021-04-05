@@ -160,9 +160,7 @@ Reiterating:
 
 
 ### Sketches/Photos of device design
-The original idea of this device would be a suitcase-like object. Once it's opened, it would show a two-sided game like Battleship. In the middle there would be two screens, one facing each player that would show circles that correspond to buttons on the inside of the board. The circles on the screen would be rendered with a rhythm in mind so that users have to tap the buttons to a beat (like Dance Dance Revolution).
-
-[Image]
+The original idea of this device would be a suitcase-like object. Once it's opened, it would show a two-sided game like [Battleship](https://www.youtube.com/watch?v=4gHJlYLomrs). In the middle there would be two screens, one facing each player that would show circles that correspond to buttons on the inside of the board. The circles on the screen would be rendered with a rhythm in mind so that users have to tap the buttons to a beat such as in [Tap Tap Revenge](https://www.youtube.com/watch?v=XtOY7BSn-UA).
 
 The prototype below shows the general idea of what one side of the board would look like. The prototype was built out of a cardboard box (thanks USPS), a raspberry pi (RPi), an Adafruit capactive sensor, and, conductive tape and paper.
 
@@ -173,7 +171,7 @@ As mentioned, above the design would be more of a suitcase. Originally when buil
 <img src="https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%204/img/IMG-1715.JPG"  width="250"/>
 
 
-As you can see, this box could easily be cut in half - making it more manageable for the user.
+As you can see, this box could easily be cut in half - making it more manageable for the user. The idea is for the game to be compact and easy to move around.
 
 ### Works like
 The device should be able to render circles ("notes") in a musical pattern and have the accompanying sounds with it. Moreover, it would give the user feedback during the song (i.e. score counter, audiovisual feedback, etc.). Ideally, the user wouldn't immediately jump into the game. Once it has started, there would be a good UX design that would allow the user to choose the difficulty of the game, and other settings.
