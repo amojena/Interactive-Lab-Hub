@@ -82,7 +82,7 @@ class Circle:
         self.y1 = pos[1]
         self.x2 = pos[2]
         self.y2 = pos[3]
-        self.speed = 18 # rate at which circle will move down the screen
+        self.speed = 22 # rate at which circle will move down the screen
         self.color = color
         self.id = id # column # used to compare with button pressed
 
@@ -117,18 +117,25 @@ def main():
     topCircles = [Circle(circle_start_pos[i], fill_colors[i], i) for i in range(4)]
     activeCircles = []
 
+    render = lambda circle: circle.draw()
+    moveDown = lambda circle: circle.moveDown()
 
     while True:
         # Draw a black filled box to clear the image.
         draw.rectangle((0, 0, width, height), outline=0, fill="#DFE3EC")
         draw.rectangle((0, 0, action_w, action_h), outline="#A70000")
 
-        for circle in topCircles:
-            circle.draw()
+        map(render, topCircles)
+        map(render, activeCircles)
+        map(moveDown), activeCircles)
 
-        for circle in activeCircles:
-            circle.draw()
-            circle.moveDown()
+
+        # for circle in topCircles:
+        #     circle.draw()
+        #
+        # for circle in activeCircles:
+        #     circle.draw()
+        #     circle.moveDown()
 
         # 50% chance of a new circle spawning
         if randint(1,10) <= 6:
