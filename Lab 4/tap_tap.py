@@ -129,14 +129,6 @@ def main():
         map(render, activeCircles)
         map(moveDown), activeCircles)
 
-
-        # for circle in topCircles:
-        #     circle.draw()
-        #
-        # for circle in activeCircles:
-        #     circle.draw()
-        #     circle.moveDown()
-
         # 50% chance of a new circle spawning
         if randint(1,10) <= 6:
             ind = randint(0,3)
