@@ -118,3 +118,4 @@ I think a camera would have been nice just to see the reactions. The participant
 
 The accelerometer was connected to the controller and ready for use. I couldn't think of a use for it for this experiment other than to use as a cue to say something to the user. For example, if they moved the position of the controller I could have responded with "Oh sorry, was I in the way?" and ask 1-2 more probing questions as to what a better setup would have been.
 
+[Google Drive Link of Recording](https://drive.google.com/file/d/1XakzBQde-aJxYEgm6E1XiAlSIm25h9Ri/view?usp=sharing)
