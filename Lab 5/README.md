@@ -1,7 +1,7 @@
 # Observant Systems
 
 
-For lab this week, we focus on creating interactive systems that can detect and respond to events or stimuli in the environment of the Pi, like the Boat Detector we mentioned in lecture. 
+For lab this week, we focus on creating interactive systems that can detect and respond to events or stimuli in the environment of the Pi, like the Boat Detector we mentioned in lecture.
 Your **observant device** could, for example, count items, find objects, recognize an event or continuously monitor a room.
 
 This lab will help you think through the design of observant systems, particularly corner cases that the algorithms need to be aware of.
@@ -92,7 +92,7 @@ Using the set up from the [Lab 3 demo](https://github.com/FAR-Lab/Interactive-La
 
 **3. Set up peak detection** Can you identify when your signal reaches a peak and then goes down?
 
-Include links to your code here, and put the code for these in your repo--they will come in handy later.
+Include links to your code [here](https://github.com/amojena/Interactive-Lab-Hub/blob/Spring2021/Lab%205/app.py), and put the code for these in your repo--they will come in handy later.
 
 #### Teachable Machines (beta, optional)
 Google's [TeachableMachines](https://teachablemachine.withgoogle.com/train) might look very simple.  However, its simplicity is very useful for experimenting with the capabilities of this technology.
