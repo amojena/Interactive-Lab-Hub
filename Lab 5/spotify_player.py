@@ -7,4 +7,4 @@ import tensorflow.keras as tf
 
 if __name__ == '__main__':
     savedModelPath = "/transfer/converted_savedmodel.zip"
-    tf.keras.models.load_model(savedModelPath)
+    tf.models.load_model(savedModelPath)
