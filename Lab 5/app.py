@@ -49,6 +49,8 @@ if __name__ == "__main__":
         np.append(z, tempAcc[2])
         np.delete(z, 0)
 
+        print(x)
+
 
         print(f"Threshold exceeded - X: {tempAcc[0] > threshold}, Y: {tempAcc[1] > threshold}, Z: {tempAcc[2] > threshold}")
 
