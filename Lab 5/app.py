@@ -1,4 +1,3 @@
-import eventlet
 import time
 import board
 import busio
@@ -30,12 +29,12 @@ if __name__ == "__main__":
         yTotal += mpu.acceleration[1]
         zTotal += mpu.acceleration[2]
 
-        print(f"Average after {round}s: ({xTotal/round},{yTotal/round},{zTotal/round})\r", end="\n")
+        print(f"Average after {round}s: ({xTotal/round},{yTotal/round},{zTotal/round})", end="\n")
         round += 1
 
         xPeak = updatePeak(xPeak, mpu.acceleration[0])
-        xPeak = updatePeak(yPeak, mpu.acceleration[1])
-        xPeak = updatePeak(zPeak, mpu.acceleration[2])
+        yPeak = updatePeak(yPeak, mpu.acceleration[1])
+        zPeak = updatePeak(zPeak, mpu.acceleration[2])
 
         print(f"Peaks X: {xPeak}, Y: {yPeak}, Z: {zPeak}\r", end="")
         time.sleep(1)
