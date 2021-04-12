@@ -37,7 +37,7 @@ if __name__ == "__main__":
         yTotal += tempAcc[1]
         zTotal += tempAcc[2]
 
-        print(f"Threshold exceeded - X: {tempAcc[0] > threshold}, Y: {tempAcc[1] > threshold}, Z: {tempAcc[2] > threshold})
+        print(f"Threshold exceeded - X: {tempAcc[0] > threshold}, Y: {tempAcc[1] > threshold}, Z: {tempAcc[2] > threshold}")
 
         print(f"Average after {round}s: ({xTotal/round},{yTotal/round},{zTotal/round})")
         round += 1
