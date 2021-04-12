@@ -30,7 +30,7 @@ if __name__ == "__main__":
         yTotal += mpu.acceleration[1]
         zTotal += mpu.acceleration[2]
 
-        print(f"Average after {round}s: ({xTotal/round},{yTotal/round},{zTotal/round})")
+        print(f"Average after {round}s: ({xTotal/round},{yTotal/round},{zTotal/round})\r", end="")
         round += 1
 
         xPeak = updatePeak(xPeak, mpu.acceleration[0])
@@ -38,3 +38,4 @@ if __name__ == "__main__":
         xPeak = updatePeak(zPeak, mpu.acceleration[2])
 
         print(f"Peaks X: {xPeak}, Y: {yPeak}, Z: {zPeak}\r", end="")
+        time.sleep(1)
