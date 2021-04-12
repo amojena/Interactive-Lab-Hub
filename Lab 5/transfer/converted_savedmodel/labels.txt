@@ -1,5 +1,0 @@
-0 Previous
-1 Next
-2 Stop
-3 Play
-4 Neutral
