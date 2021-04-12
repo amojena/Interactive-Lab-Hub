@@ -4,6 +4,7 @@ import busio
 import adafruit_mpu6050
 import sys
 import os
+import numpy as np
 
 
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -31,15 +32,27 @@ if __name__ == "__main__":
     threshold = int(input("Threshold value: "))
     nBlocks = int(input("Blocks for running average: "))
 
+    x = np.zeros(nBlocks)
+    y = np.zeros(nBlocks)
+    z = np.zeros(nBlocks)
+
     while True:
         tempAcc = mpu.acceleration
         xTotal += tempAcc[0]
         yTotal += tempAcc[1]
         zTotal += tempAcc[2]
 
+        np.append(x, tempAcc[0])
+        np.delete(x, 0)
+        np.append(y, tempAcc[1])
+        np.delete(y, 0)
+        np.append(z, tempAcc[2])
+        np.delete(z, 0)
+
+
         print(f"Threshold exceeded - X: {tempAcc[0] > threshold}, Y: {tempAcc[1] > threshold}, Z: {tempAcc[2] > threshold}")
 
-        print(f"Average after {round}s: ({xTotal/round},{yTotal/round},{zTotal/round})")
+        print(f"Average of last {nBlocks}s: ({np.mean(x)},{np.mean(y)},{np.mean(z)})")
         round += 1
 
         xPeak = updatePeak(xPeak, tempAcc[0])
