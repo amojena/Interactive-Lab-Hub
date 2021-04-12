@@ -36,5 +36,5 @@ if __name__ == "__main__":
         yPeak = updatePeak(yPeak, mpu.acceleration[1])
         zPeak = updatePeak(zPeak, mpu.acceleration[2])
 
-        print(f"Peaks X: {xPeak}, Y: {yPeak}, Z: {zPeak}", end="")
+        print(f"Peaks X: {xPeak}, Y: {yPeak}, Z: {zPeak}\r")
         time.sleep(1)
