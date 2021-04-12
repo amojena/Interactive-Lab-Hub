@@ -3,6 +3,7 @@ import board
 import busio
 import adafruit_mpu6050
 import sys
+import os
 
 
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -18,6 +19,7 @@ def updatePeak(peak, acc):
 
 
 if __name__ == "__main__":
+    os.system("clear")
 
     xTotal, yTotal, zTotal = 0, 0, 0
     xPeak, yPeak, zPeak = [0,0], [0,0], [0,0]
@@ -29,10 +31,12 @@ if __name__ == "__main__":
         yTotal += mpu.acceleration[1]
         zTotal += mpu.acceleration[2]
 
+        print(f"\rAverage after {round}s: ({xTotal/round},{yTotal/round},{zTotal/round})")
+        round += 1
+
         xPeak = updatePeak(xPeak, mpu.acceleration[0])
         yPeak = updatePeak(yPeak, mpu.acceleration[1])
         zPeak = updatePeak(zPeak, mpu.acceleration[2])
 
-        print(f"Average after {round}s: ({xTotal/round},{yTotal/round},{zTotal/round})\nPeaks X: {xPeak}, Y: {yPeak}, Z: {zPeak}\r", end ="")
-        round += 1
+        print(f"Peaks X: {xPeak}, Y: {yPeak}, Z: {zPeak}\r")
         time.sleep(1)
