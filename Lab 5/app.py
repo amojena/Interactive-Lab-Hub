@@ -44,9 +44,9 @@ if __name__ == "__main__":
         yTotal += tempAcc[1]
         zTotal += tempAcc[2]
 
-        x = x[1:] + tempAcc[0]
-        y = y[1:] + tempAcc[1]
-        z = z[1:] + tempAcc[2]
+        x = x[1:] + [tempAcc[0]]
+        y = y[1:] + [tempAcc[1]]
+        z = z[1:] + [tempAcc[2]]
 
         print(f"Threshold exceeded - X: {tempAcc[0] > threshold}, Y: {tempAcc[1] > threshold}, Z: {tempAcc[2] > threshold}")
 
