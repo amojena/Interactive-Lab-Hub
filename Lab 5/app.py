@@ -18,8 +18,8 @@ def updatePeak(peak, acc):
     return peak
 
 def getMean(l):
-    print(float(sum(l)) / float(len(l)))
-    return round(float(sum(l)) / float(len(l)), 2)
+    m= float(sum(l)) / float(len(l))
+    return round(m, 2)
 
 
 if __name__ == "__main__":
