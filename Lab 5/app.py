@@ -24,4 +24,4 @@ mpu = adafruit_mpu6050.MPU6050(i2c)
 
 if __name__ == "__main__":
     while True:
-        print(mpu.acceleration)
+        print(f"{mpu.acceleration}\r", end="")
