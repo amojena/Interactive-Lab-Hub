@@ -19,6 +19,7 @@ def updatePeak(peak, acc):
 
 def getMean(l):
     m= float(sum(l)) / float(len(l))
+    print(type(m))
     return round(m, 2)
 
 
