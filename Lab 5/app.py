@@ -28,8 +28,8 @@ if __name__ == "__main__":
     threshold = 5 # arbitrary
     backlines = "\033[F"*2
 
-    threshold = input("Threshold value: ")
-    nBlocks = input("Blocks for running average: ")
+    threshold = int(input("Threshold value: "))
+    nBlocks = int(input("Blocks for running average: "))
 
     while True:
         tempAcc = mpu.acceleration
