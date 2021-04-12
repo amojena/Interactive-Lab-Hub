@@ -38,23 +38,22 @@ if __name__ == "__main__":
     y = [0] * nBlocks
     z = [0] * nBlocks
 
-    # mean = lambda x: round(float(sum(x)) / float(len(x)), 2)
-
     while True:
         tempAcc = mpu.acceleration
 
+        # update running average list
         x = x[1:] + [tempAcc[0]]
         y = y[1:] + [tempAcc[1]]
         z = z[1:] + [tempAcc[2]]
 
-        print(f"Threshold exceeded - X: {tempAcc[0] > threshold}, Y: {tempAcc[1] > threshold}, Z: {tempAcc[2] > threshold}")
-
-        print(f"Average of last {nBlocks}s: ({getMean(x)},{getMean(y)},{getMean(z)})")
-
+        # peak identification
         xPeak = updatePeak(xPeak, tempAcc[0])
         yPeak = updatePeak(yPeak, tempAcc[1])
         zPeak = updatePeak(zPeak, tempAcc[2])
 
+
+        print(f"Threshold exceeded - X: {tempAcc[0] > threshold}, Y: {tempAcc[1] > threshold}, Z: {tempAcc[2] > threshold}")
+        print(f"Average of last {nBlocks}s: ({getMean(x)},{getMean(y)},{getMean(z)})")
         print(f"Peaks X: {formatPeaks(xPeak)}, Y: {formatPeaks(yPeak)}, Z: {formatPeaks(zPeak)}{backlines}\r",end="", flush=True)
 
         time.sleep(1)
