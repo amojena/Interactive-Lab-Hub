@@ -42,11 +42,11 @@ if __name__ == "__main__":
         yTotal += tempAcc[1]
         zTotal += tempAcc[2]
 
-        np.append(x, tempAcc[0])
+        np.append(x, [tempAcc[0]])
         np.delete(x, 0)
-        np.append(y, tempAcc[1])
+        np.append(y, [tempAcc[1]])
         np.delete(y, 0)
-        np.append(z, tempAcc[2])
+        np.append(z,[tempAcc[2]])
         np.delete(z, 0)
 
         print(x)
