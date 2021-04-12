@@ -22,7 +22,7 @@ def getMean(l):
     return "{:.2f}".format(m)
 
 def formatPeaks(p):
-    return "({:.2f}, {:.2f})".format(p[1], p[2])
+    return "({:.2f}, {:.2f})".format(p[0], p[1])
 
 
 if __name__ == "__main__":
