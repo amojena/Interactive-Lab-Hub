@@ -18,7 +18,7 @@ def updatePeak(peak, acc):
     return peak
 
 def getMean(l):
-    print(l)
+    print(float(sum(l)) / float(len(l))
     return round(float(sum(l)) / float(len(l)), 2)
 
 
