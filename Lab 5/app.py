@@ -32,9 +32,11 @@ if __name__ == "__main__":
     threshold = int(input("Threshold value: "))
     nBlocks = int(input("Blocks for running average: "))
 
-    x = np.zeros(nBlocks)
-    y = np.zeros(nBlocks)
-    z = np.zeros(nBlocks)
+    x = [0] * nBlocks
+    y = [0] * nBlocks
+    z = [0] * nBlocks
+
+    mean = lambda x: sum(x) / len(x)
 
     while True:
         tempAcc = mpu.acceleration
@@ -42,19 +44,13 @@ if __name__ == "__main__":
         yTotal += tempAcc[1]
         zTotal += tempAcc[2]
 
-        np.append(x, [tempAcc[0]])
-        np.delete(x, 0)
-        np.append(y, [tempAcc[1]])
-        np.delete(y, 0)
-        np.append(z,[tempAcc[2]])
-        np.delete(z, 0)
-
-        print(x)
-
+        x = x[1:] + tempAcc[0]
+        y = y[1:] + tempAcc[1]
+        z = z[1:] + tempAcc[2]
 
         print(f"Threshold exceeded - X: {tempAcc[0] > threshold}, Y: {tempAcc[1] > threshold}, Z: {tempAcc[2] > threshold}")
 
-        print(f"Average of last {nBlocks}s: ({np.mean(x)},{np.mean(y)},{np.mean(z)})")
+        print(f"Average of last {nBlocks}s: ({mean(x)},{mean(y)},{mean(z)})")
         round += 1
 
         xPeak = updatePeak(xPeak, tempAcc[0])
