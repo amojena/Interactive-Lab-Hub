@@ -26,18 +26,26 @@ if __name__ == "__main__":
 
     round = 1
     threshold = 5 # arbitrary
-    backline = "\033[F"
+    backlines = "\033[F"*2
+
+    threshold = input("Threshold value: ")
+    nBlocks = input("Blocks for running average: ")
+
     while True:
-        xTotal += mpu.acceleration[0]
-        yTotal += mpu.acceleration[1]
-        zTotal += mpu.acceleration[2]
+        tempAcc = mpu.acceleration
+        xTotal += tempAcc[0]
+        yTotal += tempAcc[1]
+        zTotal += tempAcc[2]
+
+        print(f"Threshold exceeded - X: {tempAcc[0] > threshold}, Y: {tempAcc[1] > threshold}, Z: {tempAcc[2] > threshold})
 
         print(f"Average after {round}s: ({xTotal/round},{yTotal/round},{zTotal/round})")
         round += 1
 
-        xPeak = updatePeak(xPeak, mpu.acceleration[0])
-        yPeak = updatePeak(yPeak, mpu.acceleration[1])
-        zPeak = updatePeak(zPeak, mpu.acceleration[2])
+        xPeak = updatePeak(xPeak, tempAcc[0])
+        yPeak = updatePeak(yPeak, tempAcc[1])
+        zPeak = updatePeak(zPeak, tempAcc[2])
 
-        print(f"Peaks X: {xPeak}, Y: {yPeak}, Z: {zPeak}{backline}\r",end="", flush=True)
+        print(f"Peaks X: {xPeak}, Y: {yPeak}, Z: {zPeak}{backlines}\r",end="", flush=True)
+
         time.sleep(1)
