@@ -1,6 +1,6 @@
 import time
 import os
-import system
+import sys
 import numpy as np
 import subprocess
 import tensorflow.keras as tf
