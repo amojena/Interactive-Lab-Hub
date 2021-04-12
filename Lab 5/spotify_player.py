@@ -6,5 +6,7 @@ import subprocess
 import tensorflow.keras as tf
 
 if __name__ == '__main__':
-    savedModelPath = "transfer/converted_savedmodel/model.savedmodel/saved_model.pb"
+    print("Loading...")
+    savedModelPath = "transfer/converted_savedmodel/model.savedmodel/"
     tf.models.load_model(savedModelPath)
+    print("Yay")
