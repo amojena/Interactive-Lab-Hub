@@ -53,6 +53,6 @@ if __name__ == "__main__":
         yPeak = updatePeak(yPeak, tempAcc[1])
         zPeak = updatePeak(zPeak, tempAcc[2])
 
-        print(f"Peaks X: {round(xPeak, 2)}, Y: {round(yPeak, 2)}, Z: {roundzxPeak, 2)}{backlines}\r",end="", flush=True)
+        print(f"Peaks X: {round(xPeak, 2)}, Y: {round(yPeak, 2)}, Z: {round(zPeak, 2)}{backlines}\r",end="", flush=True)
 
         time.sleep(1)
