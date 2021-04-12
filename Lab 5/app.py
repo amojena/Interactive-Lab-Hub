@@ -20,14 +20,17 @@ def updatePeak(peak, acc):
 
 if __name__ == "__main__":
 
-    x_total, y_total, z_total = 0, 0, 0
+    xTotal, yTotal, zTotal = 0, 0, 0
     xPeak, yPeak, zPeak = [0,0], [0,0], [0,0]
 
     round = 1
     threshold = 5 # arbitrary
     while True:
-        x_total, y_total, z_total += mpu.acceleration
-        print(f"Average after {round}s: ({x_total/round},{y_total/round},{z_total/round})")
+        xTotal += mpu.acceleration[0]
+        yTotal += mpu.acceleration[1]
+        zTotal += mpu.acceleration[2]
+
+        print(f"Average after {round}s: ({xTotal/round},{yTotal/round},{zTotal/round})")
         round += 1
 
         xPeak = updatePeak(xPeak, mpu.acceleration[0])
