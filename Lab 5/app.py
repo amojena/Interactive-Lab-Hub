@@ -35,7 +35,7 @@ if __name__ == "__main__":
     y = [0] * nBlocks
     z = [0] * nBlocks
 
-    mean = lambda x: round(sum(x) / len(x), 2)
+    mean = lambda x: round(float(sum(x)) / float(len(x)), 2)
 
     while True:
         tempAcc = mpu.acceleration
