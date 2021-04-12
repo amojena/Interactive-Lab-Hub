@@ -21,14 +21,14 @@ def getMean(l):
     m= float(sum(l)) / float(len(l))
     return "{:.2f}".format(m)
 
+def formatPeaks(p):
+    return "({:.2f}, {:.2f})".format(p[1], p[2])
+
 
 if __name__ == "__main__":
     os.system("clear")
 
     xPeak, yPeak, zPeak = [0,0], [0,0], [0,0]
-
-    round = 1
-    threshold = 5 # arbitrary
     backlines = "\033[F"*2
 
     threshold = int(input("Threshold value: "))
@@ -50,12 +50,11 @@ if __name__ == "__main__":
         print(f"Threshold exceeded - X: {tempAcc[0] > threshold}, Y: {tempAcc[1] > threshold}, Z: {tempAcc[2] > threshold}")
 
         print(f"Average of last {nBlocks}s: ({getMean(x)},{getMean(y)},{getMean(z)})")
-        round += 1
 
         xPeak = updatePeak(xPeak, tempAcc[0])
         yPeak = updatePeak(yPeak, tempAcc[1])
         zPeak = updatePeak(zPeak, tempAcc[2])
 
-        print(f"Peaks X: {round(xPeak, 2)}, Y: {round(yPeak, 2)}, Z: {round(zPeak, 2)}{backlines}\r",end="", flush=True)
+        print(f"Peaks X: {formatPeaks(xPeak)}, Y: {formatPeaks(yPeak)}, Z: {formatPeaks(zPeak)}{backlines}\r",end="", flush=True)
 
         time.sleep(1)
