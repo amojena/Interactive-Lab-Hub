@@ -17,6 +17,8 @@ def updatePeak(peak, acc):
         return (acc, peak[1])
     return peak
 
+def getMean(l):
+    return round(float(sum(l)) / float(len(l)), 2)
 
 
 if __name__ == "__main__":
@@ -35,7 +37,7 @@ if __name__ == "__main__":
     y = [0] * nBlocks
     z = [0] * nBlocks
 
-    mean = lambda x: round(float(sum(x)) / float(len(x)), 2)
+    # mean = lambda x: round(float(sum(x)) / float(len(x)), 2)
 
     while True:
         tempAcc = mpu.acceleration
@@ -46,7 +48,7 @@ if __name__ == "__main__":
 
         print(f"Threshold exceeded - X: {tempAcc[0] > threshold}, Y: {tempAcc[1] > threshold}, Z: {tempAcc[2] > threshold}")
 
-        print(f"Average of last {nBlocks}s: ({mean(x)},{mean(y)},{mean(z)})")
+        print(f"Average of last {nBlocks}s: ({getMean(x)},{getMean(y)},{getMean(z)})")
         round += 1
 
         xPeak = updatePeak(xPeak, tempAcc[0])
