@@ -22,7 +22,6 @@ def updatePeak(peak, acc):
 if __name__ == "__main__":
     os.system("clear")
 
-    xTotal, yTotal, zTotal = 0, 0, 0
     xPeak, yPeak, zPeak = [0,0], [0,0], [0,0]
 
     round = 1
@@ -36,13 +35,10 @@ if __name__ == "__main__":
     y = [0] * nBlocks
     z = [0] * nBlocks
 
-    mean = lambda x: sum(x) / len(x)
+    mean = lambda x: round(sum(x) / len(x), 2)
 
     while True:
         tempAcc = mpu.acceleration
-        xTotal += tempAcc[0]
-        yTotal += tempAcc[1]
-        zTotal += tempAcc[2]
 
         x = x[1:] + [tempAcc[0]]
         y = y[1:] + [tempAcc[1]]
@@ -57,6 +53,6 @@ if __name__ == "__main__":
         yPeak = updatePeak(yPeak, tempAcc[1])
         zPeak = updatePeak(zPeak, tempAcc[2])
 
-        print(f"Peaks X: {xPeak}, Y: {yPeak}, Z: {zPeak}{backlines}\r",end="", flush=True)
+        print(f"Peaks X: {round(xPeak, 2)}, Y: {round(yPeak, 2)}, Z: {roundzxPeak, 2)}{backlines}\r",end="", flush=True)
 
         time.sleep(1)
