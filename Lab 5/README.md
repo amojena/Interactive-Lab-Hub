@@ -128,7 +128,7 @@ With hand gestures, the user can go to the next or previous track or pause/play 
   - Otherwise, play current track
 - No clear hand gesture: do nothing
 
-For an action to be taken, the prediction must be made with *at least* 60% confidence (_arbitrary threshold_).
+For an action to be taken, the prediction must be made with **at least** 60% confidence (_arbitrary threshold_).
 
 **Describe and detail the interaction, as well as your experimentation.**
 
@@ -142,11 +142,30 @@ For example:
 1. When it fails, why does it fail?
 1. Based on the behavior you have seen, what other scenarios could cause problems?
 
+For the most part, the prototype works almost 100% of the time. There are 2 occasional scenarios in which it behaves unexpectedly.
+1. The user could not be making any of the required gestures but the model predicts that the user is requesting to pause/play the current track (rare occasion).
+2. The model seems to get confused by how far the body is away from the camera. For example, being closer to the camera triggers the model
+to predict pause/play. My guess is that the body covers enough of the range that the camera sees and it confuses that with the two hands being raised because you can see
+less of the background.
+1. The user could be asking to go to the previous song and will interpret any other answer (somewhat infrequent).
+2. I am not sure about this one. One thing I did notice is that the light that is facing me is coming at an angle which could make the right hand be more distinct than the left
+in the training data. This would lead the left hand to sometimes be interpreted as background and use the body placement/distance mentioned above to make its prediction.
+
+Another flaw I tried to exploit but anticipated when training the model was stretching and weird body placement. Some people will stretch sitting in place and the hand/arm movement
+could be misintepreted by the model as a request. The same can happen if you are not sitting upright. Some body poses I attempted was leaning to either side of my chair or sitting very
+far back from the camera or with most of my body hanging out of the chair. Luckily, this all was predicted as a "neutral" position in every run I did.
+
 **Think about someone using the system. Describe how you think this will work.**
 1. Are they aware of the uncertainties in the system?
 1. How bad would they be impacted by a miss classification?
 1. How could change your interactive system to address this?
 1. Are there optimizations you can try to do on your sense-making algorithm.
+
+If it's the user's first time they have no reason to believe there are uncertainties. However, once the occasional misclassification will most likely bother the user. Since there
+will be an immediate auditory change in the environment, it will be hard to disguise the mistake - the user will notice every time there is a wrong misclassification. There is a 
+tradeoff that could be done between changing the action threshold to make more accurate decisions but that could frustrate the user whenever they request to skip a song, for example,
+and nothing happens. In terms of optimization, you could spend more time recording yourself making the relevant gestures on Teachable Machine to increase the amount of training data. You
+could also experiment with adding motion sensors to the environment to recognize when each hand is moving in order to make a request.
 
 ### Part D
 ### Characterize your own Observant system
