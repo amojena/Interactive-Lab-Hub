@@ -144,11 +144,11 @@ For example:
 
 For the most part, the prototype works almost 100% of the time. There are 2 occasional scenarios in which it behaves unexpectedly.
 1. The user could not be making any of the required gestures but the model predicts that the user is requesting to pause/play the current track (rare occasion).
-2. The model seems to get confused by how far the body is away from the camera. For example, being closer to the camera triggers the model
+- The model seems to get confused by how far the body is away from the camera. For example, being closer to the camera triggers the model
 to predict pause/play. My guess is that the body covers enough of the range that the camera sees and it confuses that with the two hands being raised because you can see
 less of the background.
 1. The user could be asking to go to the previous song and will interpret any other answer (somewhat infrequent).
-2. I am not sure about this one. One thing I did notice is that the light that is facing me is coming at an angle which could make the right hand be more distinct than the left
+-  I am not sure about this one. One thing I did notice is that the light that is facing me is coming at an angle which could make the right hand be more distinct than the left
 in the training data. This would lead the left hand to sometimes be interpreted as background and use the body placement/distance mentioned above to make its prediction.
 
 Another flaw I tried to exploit but anticipated when training the model was stretching and weird body placement. Some people will stretch sitting in place and the hand/arm movement
