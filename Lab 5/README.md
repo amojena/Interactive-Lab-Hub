@@ -117,6 +117,19 @@ As a note, the global Python install contains also a PyTorch installation. That 
 Pick one of the models you have tried, pick a class of objects, and experiment with prototyping an interaction.
 This can be as simple as the boat detector earlier.
 Try out different interactions outputs and inputs.
+
+I played around with Teachable Machine and decided to do a CV model that would detect a user's hand gesture to control their Spotify.
+With hand gestures, the user can go to the next or previous track or pause/play the current track. The hand gestures and their corresponding actions are:
+
+- Raise Left Hand: go to previous song
+- Raise Right Hand: go to next song
+- Raise Both Hands:
+  - If song is playing: pause current track
+  - Otherwise, play current track
+- No clear hand gesture: do nothing
+
+For an action to be taken, the prediction must be made with *at least* 60% confidence (_arbitrary threshold_).
+
 **Describe and detail the interaction, as well as your experimentation.**
 
 ### Part C
