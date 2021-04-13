@@ -4,7 +4,7 @@ import sys
 import numpy as np
 import subprocess
 import tensorflow.keras as tf
-from picamera import picCamera
+from picamera import PiCamera
 
 if __name__ == '__main__':
     print("Loading...")
