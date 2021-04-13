@@ -1,10 +1,8 @@
-import time
+from time import sleep
 import os
 import sys
 import numpy as np
-import subprocess
 import tensorflow.keras as tf
-from picamera import PiCamera
 from PIL import Image, ImageOps
 
 labels = {0: "Previous", 1: "Next", 2: "Pause/Play", 3: "Neutral"}
@@ -12,6 +10,7 @@ labels = {0: "Previous", 1: "Next", 2: "Pause/Play", 3: "Neutral"}
 savedModelPath = "transfer/converted_keras/keras_model.h5"
 model = tf.models.load_model(savedModelPath)
 
+# what is the prediction and is the model confidece higher than the threshold
 def interpret(prediction, threshold):
     p = -1
     pi = -1
@@ -22,11 +21,13 @@ def interpret(prediction, threshold):
     
     return (labels[pi], (p*100) > threshold)
 
+# take picture, analyze, and return prediction w confidence value
 def get_action(threshold):
     img_file = "temp.jpg"
     cmd = "fswebcam " + img_file
     
     time.sleep(3)
+    # take picture
     os.system(cmd)
     
     # Create the array of the right shape to feed into the keras model

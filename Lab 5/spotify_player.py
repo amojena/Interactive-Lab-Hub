@@ -12,6 +12,7 @@ def getCreds():
     
     return lines[0].rstrip(), lines[1].rstrip(), lines[2].rstrip()
 
+# login without user authentication
 def without(clientID, secret):
     return spotipy.Spotify(
         auth_manager=SpotifyClientCredentials(
@@ -19,7 +20,7 @@ def without(clientID, secret):
         client_secret=secret
         ))
     
-
+# login with user authentication (needed for playback ops)
 def withAuth(clientID, secret, redi):
     return spotipy.Spotify(auth_manager=SpotifyOAuth(
     client_id=clientID, 
@@ -27,7 +28,9 @@ def withAuth(clientID, secret, redi):
     redirect_uri=redi,
     scope="user-read-playback-state user-modify-playback-state"
     ))
-    
+
+# ask Spotify is user is currently playing a song, pause/play will
+# crash if this API request is done without considering this
 def isCurrentlyPlaying():
     return sp.current_user_playing_track()["is_playing"]
 
@@ -38,15 +41,16 @@ if __name__ == "__main__":
     
     while True:
         
-        try:
-            print(sp.current_user_playing_track()["is_playing"])
-        except:
-            pass
-            
+        # ask for action every second (getting action takes ~5s)
         time.sleep(1)
+        
+        # take picture and determine what action needs to be taken
+        # and probability of action requested
         cmd, highP = model.get_action(threshold)
         
-        if not highP:
+        # low probability of what user is doing, no action taken
+        # or user not making any request
+        if not highP or cmd == "Neutral":
             continue
             
         try:
