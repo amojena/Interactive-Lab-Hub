@@ -7,7 +7,7 @@ import tensorflow.keras as tf
 from picamera import PiCamera
 from PIL import Image, ImageOps
 
-labels = {0: "Previous", 1: "Next", 2: "Stop", 3: "Play", 4: "Neutral"}
+labels = {0: "Previous", 1: "Next", 2: "Pause/Play", 3: "Neutral"}
 
 def interpret(prediction):
     p = -1
