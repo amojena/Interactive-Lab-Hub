@@ -46,6 +46,8 @@ D) [Reflect](#part-d)
 ### Part A
 ### Play with different sense-making algorithms.
 
+Befor you get started connect the RaspberryPi Camera V2. [The Pi hut has a great explanation on how to do that](https://thepihut.com/blogs/raspberry-pi-tutorials/16021420-how-to-install-use-the-raspberry-pi-camera).  
+
 #### OpenCV
 A more traditional to extract information out of images is provided with OpenCV. The RPI image provided to you comes with an optimized installation that can be accessed through python.
 
@@ -200,4 +202,10 @@ There are a couple of things that make this experience feel slightly uncomfortab
 Shortly after the video was recorded I found that **there is** a way this application will break. If you do not have Spotify open at the time of starting the application or had to reboot
 Spotify but did not restart the program, it will no longer work. The API will return a response saying it does not know what device it should be directing the playback request to. The program
 will not stop so the camera and the model will keep working but the API will not make the requested action.
+
+### Part 2.
+
+Following exploration and reflection from Part 1, finish building your interactive system, and demonstrate it in use with a video.
+
+**Include a short video demonstrating the finished result.**
 
