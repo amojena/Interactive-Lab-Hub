@@ -147,7 +147,7 @@ For the most part, the prototype works almost 100% of the time. There are 2 occa
 - The model seems to get confused by how far the body is away from the camera. For example, being closer to the camera triggers the model
 to predict pause/play. My guess is that the body covers enough of the range that the camera sees and it confuses that with the two hands being raised because you can see
 less of the background.
-1. The user could be asking to go to the previous song and will interpret any other answer (somewhat infrequent).
+2. The user could be asking to go to the previous song and will interpret any other answer (somewhat infrequent).
 -  I am not sure about this one. One thing I did notice is that the light that is facing me is coming at an angle which could make the right hand be more distinct than the left
 in the training data. This would lead the left hand to sometimes be interpreted as background and use the body placement/distance mentioned above to make its prediction.
 
@@ -181,3 +181,23 @@ During the lecture, we mentioned questions to help characterize a material:
 * How does X feel?
 
 **Include a short video demonstrating the answers to these questions.**
+[Video](https://drive.google.com/file/d/1LcrBTZFUTfu0VSOd1hRtO0kRZ61SdTKM/view?usp=sharing)
+
+Questions not addressed in video:
+
+**What are other properties/behaviors of X?**
+Most of this has been answered between part C and the video. One thing worth noting is that you do need user authentication that right now has to be manually input into the program.
+
+**How does X feel?**
+There are a couple of things that make this experience feel slightly uncomfortable:
+- Knowing a camera is constantly taking pictures of me every few seconds makes me feel like I'm being closely watched, which technically I am
+- Knowing that the model is not 100% accurate and sometimes misbehaves makes me feel overly cautious about my pose and gestures
+- In the video I describe this could be useful for people lacking hand/finger dexterity, like stroke patients, or people who would rather make a swift gesture to change the song
+  - I fall into neither of these demographics so I would not enjoy having this for myself as a product (it seemed like a cool way of exploring CV and the Spotify API)
+
+
+**EDIT: When will X break?**
+Shortly after the video was recorded I found that **there is** a way this application will break. If you do not have Spotify open at the time of starting the application or had to reboot
+Spotify but did not restart the program, it will no longer work. The API will return a response saying it does not know what device it should be directing the playback request to. The program
+will not stop so the camera and the model will keep working but the API will not make the requested action.
+
