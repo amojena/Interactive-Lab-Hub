@@ -121,7 +121,6 @@ signal.signal(signal.SIGINT, handler)
 
 
 def gameLogic():
-    print("game logic\n\n")
     if game.opponentMove == game.counter[game.myMove]:
         client.publish(topic, ":(")
     elif game.opponentMove == game.myMove:
@@ -138,8 +137,8 @@ while True:
         move = "rock"
         client.publish(topic, move)
         game.myMove = move
-        image2 = Image.open("rock.png")
-        draw.rectangle((0, 100, width, height))
+        image2 = Image.open("rockpaper.png")
+        draw.rectangle((0, 0, width, height))
         disp.image(image2, rotation)
     if sensor[2].value:
         move = "paper"
