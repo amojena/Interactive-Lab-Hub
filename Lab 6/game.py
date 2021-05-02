@@ -17,7 +17,7 @@ class Game:
     def __init__(self) -> None:
         self.myMove = None
         self.opponentMove = None
-        self.counter = {"rock":"paper", "paper":"scissors","scissors":"rock"}
+        self.counter = {"rock":"paper", "paper":"scissors","scissors":"rock", "quit":None}
     
     def reset(self):
         self.myMove = None
@@ -27,7 +27,7 @@ class Game:
         return self.opponentMove and self.myMove
     
     def isValidInput(self, move):
-        return move == "rock" or move == "paper" or move == "scissors"
+        return move == "rock" or move == "paper" or move == "scissors" or move == "quit"
             
 
 game = Game()
@@ -121,15 +121,27 @@ signal.signal(signal.SIGINT, handler)
 
 
 def gameLogic():
-    if game.opponentMove == game.counter[game.myMove]:
+    if game.myMove == "quit" or game.opponentMove == "quit":
+        pass
+    elif game.opponentMove == game.counter[game.myMove]:
         client.publish(topic, ":(")
+        resImage = "losewin.png"
     elif game.opponentMove == game.myMove:
         client.publish(topic, "DRAW")
+        resImage = "draw.png"
     elif game.myMove == game.counter[game.opponentMove]:
         client.publish(topic, "Ha I win")
+        resImage = "winlose.png"
     else:
         client.publish(topic, "you're missing an edge case dum dum")
+    
+    draw.rectangle((0, 0, width, height))
+    disp.image(game.myMove+game.opponentMove+".png", rotation)
     game.reset()
+    time.sleep(1)
+    draw.rectangle((0, 0, width, height))
+    disp.image(resImage, rotation)
+    
 # our main loop
 while True:
     move = None
@@ -137,7 +149,7 @@ while True:
         move = "rock"
         client.publish(topic, move)
         game.myMove = move
-        image2 = Image.open("rockpaper.png")
+        image2 = Image.open("rock.png")
         draw.rectangle((0, 0, width, height))
         disp.image(image2, rotation)
     if sensor[2].value:
