@@ -123,7 +123,7 @@ signal.signal(signal.SIGINT, handler)
 
 def gameLogic():
     if game.myMove == "quit" or game.opponentMove == "quit":
-        pass
+        resImage = game.opponentMove+game.myMove+".png"
     elif game.opponentMove == game.counter[game.myMove]:
         client.publish(topic, ":(")
         resImage = "winlose.png"
@@ -144,6 +144,7 @@ def gameLogic():
     draw.rectangle((0, 0, width, height))
     resIm = Image.open("imgs/" + resImage)
     disp.image(resIm, rotation)
+    time.sleep(1)
     
 # our main loop
 while True:
@@ -179,4 +180,4 @@ while True:
     if game.needLogic():
         gameLogic()
 
-    time.sleep(0.25)
+    time.sleep(1)
