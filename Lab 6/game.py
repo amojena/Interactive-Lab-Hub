@@ -27,7 +27,6 @@ class Game:
         return self.opponentMove and self.myMove
     
     def isValidInput(self, move):
-        print(f"Validating input: {self.opponentMove}")
         return move == "rock" or move == "paper" or move == "scissors"
             
 
@@ -94,11 +93,9 @@ def on_message(client, userdata, msg):
     # if a message is recieved on the colors topic, parse it and set the color
     if msg.topic == topic2:
         opponentMove = msg.payload.decode('UTF-8').rstrip()
-        print("Opponent said:" + opponentMove)
         if game.isValidInput(opponentMove):
             game.opponentMove = opponentMove
-    if msg.topic == topic:
-        print("I said: " + msg.payload.decode('UTF-8'))
+            
 
 client = mqtt.Client(str(uuid.uuid1()))
 client.tls_set()
@@ -134,7 +131,6 @@ def gameLogic():
     else:
         client.publish(topic, "you're missing an edge case dum dum")
     game.reset()
-    print("Restting... \n\n")
 # our main loop
 while True:
     move = None
@@ -167,18 +163,3 @@ while True:
         gameLogic()
 
     time.sleep(0.25)
-    
-
-
-
-
-'''
-ROCK
-- wins to scissors
-- loses to paper
-
-
-
-
-
-'''
