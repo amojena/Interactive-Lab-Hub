@@ -26,7 +26,7 @@ def get_action(threshold):
     img_file = "temp.jpg"
     cmd = "fswebcam " + img_file
     
-    time.sleep(3)
+    sleep(2)
     # take picture
     os.system(cmd)
     

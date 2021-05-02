@@ -26,7 +26,7 @@ class Game:
         return self.opponentMove and self.myMove
     
     def isValidInput(self, move):
-        return move == "rock" or move == "paper" or move == "scissors" or move == "quit"
+        return move == "rock" or move == "paper" or move == "scissors" or move == "I QUIT!"
             
 
 game = Game()
@@ -92,7 +92,10 @@ def on_message(client, userdata, msg):
     if msg.topic == topic2:
         opponentMove = msg.payload.decode('UTF-8').rstrip()
         if game.isValidInput(opponentMove):
-            game.opponentMove = opponentMove
+            if opponentMove == "I QUIT!":
+                game.opponentMove = "quit"
+            else:
+                game.opponentMove = opponentMove
             
 
 client = mqtt.Client(str(uuid.uuid1()))
@@ -169,6 +172,9 @@ while True:
     if sensor[11].value:
         move = "I QUIT!"
         client.publish(topic, move)
+        image2 = Image.open("imgs/"+"quit.png")
+        draw.rectangle((0, 0, width, height))
+        disp.image(image2, rotation)
     
     if game.needLogic():
         gameLogic()

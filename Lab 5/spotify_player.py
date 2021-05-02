@@ -2,10 +2,13 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from spotipy.oauth2 import SpotifyOAuth
 import model
+from time import sleep
+from os import system as sys
 
 def getCreds():
-    filename = input("creds filename: ")
-    filename = filename + ".txt"
+    #filename = input("creds filename: ")
+    #sys("clear")
+    filename = "c" + ".txt"
     
     with open(filename) as f:
         lines = f.readlines()
@@ -35,18 +38,24 @@ def isCurrentlyPlaying():
     return sp.current_user_playing_track()["is_playing"]
 
 if __name__ == "__main__":
+    sys("clear")
     clientID, secret, redi = getCreds()
     sp = withAuth(clientID, secret,redi)
     threshold = 60
     
+    start = "n"
+    while start != "y":
+        start = input("Enter \"y\" to start: ")
+    
     while True:
         
         # ask for action every second (getting action takes ~5s)
-        time.sleep(1)
+        sleep(1)
         
         # take picture and determine what action needs to be taken
         # and probability of action requested
         cmd, highP = model.get_action(threshold)
+        print(cmd, highP)
         
         # low probability of what user is doing, no action taken
         # or user not making any request
