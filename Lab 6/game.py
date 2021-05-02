@@ -1,6 +1,5 @@
 import board
 import busio
-import adafruit_apds9960.apds9960
 import time
 import paho.mqtt.client as mqtt
 import uuid
@@ -40,7 +39,6 @@ reset_pin = None
 
 # Config for display baudrate (default max is 24mhz):
 BAUDRATE = 64000000
-# test
 
 backlight = digitalio.DigitalInOut(board.D22)
 backlight.switch_to_output()
@@ -125,24 +123,24 @@ def gameLogic():
         pass
     elif game.opponentMove == game.counter[game.myMove]:
         client.publish(topic, ":(")
-        resImage = "losewin.png"
+        resImage = "winlose.png"
     elif game.opponentMove == game.myMove:
         client.publish(topic, "DRAW")
         resImage = "draw.png"
     elif game.myMove == game.counter[game.opponentMove]:
         client.publish(topic, "Ha I win")
-        resImage = "winlose.png"
+        resImage = "losewin.png"
     else:
         client.publish(topic, "you're missing an edge case dum dum")
     
     draw.rectangle((0, 0, width, height))
-    resIm = Image.open("imgs/"+game.myMove+game.opponentMove+".png")
+    resIm = Image.open("imgs/"+game.opponentMove+game.myMove+".png")
     disp.image(resIm, rotation)
     game.reset()
-    time.sleep(1)
+    time.sleep(3)
     draw.rectangle((0, 0, width, height))
-    resIm = Image.open(resImage)
-    disp.image(resImage, rotation)
+    resIm = Image.open("imgs/" + resImage)
+    disp.image(resIm, rotation)
     
 # our main loop
 while True:
