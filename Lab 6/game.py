@@ -25,6 +25,12 @@ class Game:
     
     def needLogic(self):
         return self.opponentMove and self.myMove
+    
+    def validateInputs(self):
+        if self.myMove != "rock" and self.myMove != "paper" and self.myMove != "scissors":
+            self.myMove = None
+        if self.opponentMove != "rock" and self.opponentMove != "paper" and self.opponentMove != "scissors":
+            self.opponentMove = None
 
 game = Game()
 
@@ -68,6 +74,7 @@ height =  disp.height
 width = disp.width 
 image = Image.new("RGB", (width, height))
 draw = ImageDraw.Draw(image)
+rotation = 90
 
 i2c = busio.I2C(board.SCL, board.SDA)
 
@@ -116,15 +123,16 @@ signal.signal(signal.SIGINT, handler)
 
 
 def gameLogic():
-    print("game logic")
+    print(f"game logic: I ({game.myMove}) would lose to {game.counter[game.myMove]}")
     if game.opponentMove == game.counter[game.myMove]:
-        client.publish(topic, f":(")
-    elif game.opponentMove == "I QUIT!":
-        client.publish(topic, f"Thanks for the games!")
+        client.publish(topic, ":(")
     elif game.opponentMove == game.myMove:
-        client.publish(topic, f"DRAW")
+        client.publish(topic, "DRAW")
+    elif game.myMove == game.counter[game.opponentMove]:
+        client.publish(topic, "Ha I win")
     else:
-        client.publish(topic, f"Ha I win!")
+        client.publish(topic, "you're missing an edge case dum dum")
+
     game.reset()
 
 # our main loop
@@ -134,14 +142,23 @@ while True:
         move = "rock"
         client.publish(topic, move)
         game.myMove = move
+        image2 = Image.open("rock.png")
+        draw.rectangle((0, 100, width, height))
+        disp.image(image2, rotation)
     if sensor[2].value:
         move = "paper"
         client.publish(topic, move)
         game.myMove = move
+        image2 = Image.open("paper.png")
+        draw.rectangle((0, 0, width, height))
+        disp.image(image2, rotation)
     if sensor[3].value:
         move = "scissors"
         client.publish(topic, move)
         game.myMove = move
+        image2 = Image.open("paper.png")
+        draw.rectangle((0, 0, width, height))
+        disp.image(image2, rotation)
     if sensor[11].value:
         move = "I QUIT!"
         client.publish(topic, move)
@@ -152,3 +169,17 @@ while True:
 
     time.sleep(0.25)
     
+
+
+
+
+'''
+ROCK
+- wins to scissors
+- loses to paper
+
+
+
+
+
+'''
