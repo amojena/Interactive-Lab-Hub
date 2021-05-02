@@ -26,11 +26,10 @@ class Game:
     def needLogic(self):
         return self.opponentMove and self.myMove
     
-    def validateInputs(self):
-        if self.myMove != "rock" and self.myMove != "paper" and self.myMove != "scissors":
-            self.myMove = None
-        if self.opponentMove != "rock" and self.opponentMove != "paper" and self.opponentMove != "scissors":
-            self.opponentMove = None
+    def isValidInput(self, move):
+        print(f"Validating input: {self.opponentMove}")
+        return move == "rock" or move == "paper" or move == "scissors"
+            
 
 game = Game()
 
@@ -74,6 +73,7 @@ height =  disp.height
 width = disp.width 
 image = Image.new("RGB", (width, height))
 draw = ImageDraw.Draw(image)
+disp.image(image)
 rotation = 90
 
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -93,9 +93,10 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     # if a message is recieved on the colors topic, parse it and set the color
     if msg.topic == topic2:
-        opponentMove = msg.payload.decode('UTF-8')
-        print("Opponent said: " + opponentMove)
-        game.opponentMove = opponentMove
+        opponentMove = msg.payload.decode('UTF-8').rstrip()
+        print("Opponent said:" + opponentMove)
+        if game.isValidInput(opponentMove):
+            game.opponentMove = opponentMove
     if msg.topic == topic:
         print("I said: " + msg.payload.decode('UTF-8'))
 
@@ -123,7 +124,7 @@ signal.signal(signal.SIGINT, handler)
 
 
 def gameLogic():
-    print(f"game logic: I ({game.myMove}) would lose to {game.counter[game.myMove]}")
+    print("game logic\n\n")
     if game.opponentMove == game.counter[game.myMove]:
         client.publish(topic, ":(")
     elif game.opponentMove == game.myMove:
@@ -132,9 +133,8 @@ def gameLogic():
         client.publish(topic, "Ha I win")
     else:
         client.publish(topic, "you're missing an edge case dum dum")
-
     game.reset()
-
+    print("Restting... \n\n")
 # our main loop
 while True:
     move = None
@@ -156,13 +156,12 @@ while True:
         move = "scissors"
         client.publish(topic, move)
         game.myMove = move
-        image2 = Image.open("paper.png")
+        image2 = Image.open("scissors.png")
         draw.rectangle((0, 0, width, height))
         disp.image(image2, rotation)
     if sensor[11].value:
         move = "I QUIT!"
         client.publish(topic, move)
-        game.myMove = move
     
     if game.needLogic():
         gameLogic()
