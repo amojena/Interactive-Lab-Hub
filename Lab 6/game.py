@@ -136,10 +136,12 @@ def gameLogic():
         client.publish(topic, "you're missing an edge case dum dum")
     
     draw.rectangle((0, 0, width, height))
-    disp.image(game.myMove+game.opponentMove+".png", rotation)
+    resIm = Image.open("imgs/"+game.myMove+game.opponentMove+".png")
+    disp.image(resIm, rotation)
     game.reset()
     time.sleep(1)
     draw.rectangle((0, 0, width, height))
+    resIm = Image.open(resImage)
     disp.image(resImage, rotation)
     
 # our main loop
@@ -149,21 +151,21 @@ while True:
         move = "rock"
         client.publish(topic, move)
         game.myMove = move
-        image2 = Image.open("rock.png")
+        image2 = Image.open("imgs/"+"rock.png")
         draw.rectangle((0, 0, width, height))
         disp.image(image2, rotation)
     if sensor[2].value:
         move = "paper"
         client.publish(topic, move)
         game.myMove = move
-        image2 = Image.open("paper.png")
+        image2 = Image.open("imgs/"+"paper.png")
         draw.rectangle((0, 0, width, height))
         disp.image(image2, rotation)
     if sensor[3].value:
         move = "scissors"
         client.publish(topic, move)
         game.myMove = move
-        image2 = Image.open("scissors.png")
+        image2 = Image.open("imgs/"+"scissors.png")
         draw.rectangle((0, 0, width, height))
         disp.image(image2, rotation)
     if sensor[11].value:
