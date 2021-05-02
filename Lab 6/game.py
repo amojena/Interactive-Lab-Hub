@@ -15,16 +15,16 @@ import adafruit_mpr121
 
 class Game:
     def __init__(self) -> None:
-        self.p1 = None
-        self.p2 = None
+        self.myMove = None
+        self.opponentMove = None
         self.counter = {"rock":"paper", "paper":"scissors","scissors":"rock"}
     
     def reset(self):
-        self.p1 = None
-        self.p2 = None
+        self.myMove = None
+        self.opponentMove = None
     
     def needLogic(self):
-        return self.p1 and self.p2
+        return self.opponentMove and self.myMove
 
 game = Game()
 
@@ -88,7 +88,7 @@ def on_message(client, userdata, msg):
     if msg.topic == topic2:
         opponentMove = msg.payload.decode('UTF-8')
         print("Opponent said: " + opponentMove)
-        game.p1 = opponentMove
+        game.opponentMove = opponentMove
     if msg.topic == topic:
         print("I said: " + msg.payload.decode('UTF-8'))
 
@@ -117,11 +117,11 @@ signal.signal(signal.SIGINT, handler)
 
 def gameLogic():
     print("game logic")
-    if game.p1 == game.counter[game.p2]:
+    if game.opponentMove == game.counter[game.myMove]:
         client.publish(topic, f":(")
-    elif opponentMove == "I QUIT!":
+    elif game.opponentMove == "I QUIT!":
         client.publish(topic, f"Thanks for the games!")
-    elif game.p1 == game.p2:
+    elif game.opponentMove == game.myMove:
         client.publish(topic, f"DRAW")
     else:
         client.publish(topic, f"Ha I win!")
@@ -133,19 +133,19 @@ while True:
     if sensor[1].value:
         move = "rock"
         client.publish(topic, move)
-        game.p2 = move
+        game.myMove = move
     if sensor[2].value:
         move = "paper"
         client.publish(topic, move)
-        game.p2 = move
+        game.myMove = move
     if sensor[3].value:
         move = "scissors"
         client.publish(topic, move)
-        game.p2 = move
+        game.myMove = move
     if sensor[11].value:
         move = "I QUIT!"
         client.publish(topic, move)
-        game.p2 = move
+        game.myMove = move
     
     if game.needLogic():
         gameLogic()
