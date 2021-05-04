@@ -83,14 +83,24 @@ Glitch is a great tool for prototyping sites, interfaces and web-apps that's wor
 
 ## Make it your own
 
+
+**COLLABORATIONS** 
+Anam Tahir (at884) and I worked together on this lab.
+
 Find at least one class (more are okay) partner, and design a distributed application together. 
 
 **1. Explain your design** For example, if you made a remote controlled banana piano, explain why anyone would want such a thing.
+We designed a digital version of rock paper scissors game that can be played over the network as in person meetups are restricted. The game is designed in a way to preserve the fun and spontaneity element of the game. A player can give his input using the touch sensor (1: paper, 2:rock, 3: scissors, 11:quit), he will see his input on the right side of the display until the second player also gives his input and as soon as both players are done selecting they see each other's input and the results after a 2 seconds pause. 
 
 **2. Diagram the architecture of the system.** Be clear to document where input, output and computation occur, and label all parts and connections. For example, where is the banana, who is the banana player, where does the sound get played, and who is listening to the banana music?
 
+![works.png](works.png)
+
 **3. Build a working prototype of the system.** Do think about the user interface: if someone encountered these bananas, would they know how to interact with them? Should they know what to expect?
+The user interface would be something like a game pad (think Simon Says) in which there are the four options connected to the touch sensor. The game pad would have images of the same hand gestures that are displayed in the RPi screen. Alternatively, you could have this a camera connected to a CV algorithm that recognizes what hand gesture you are doing and translates it into one of the relevant actions in the game (rock, paper, scissors or I quit).
 
 **4. Document the working prototype in use.** It may be helpful to record a Zoom session where you should the input in one location clearly causing response in another location.
+
+**[WORKING PROTOTYPE](https://drive.google.com/file/d/1kVWEPhrczcPMLVupSbNde40YfOqcNBcM/view?usp=sharing)**
 
 **5. BONUS (Wendy didn't approve this so you should probably ignore it)** get the whole class to run your code and make your distributed system BIGGER.
