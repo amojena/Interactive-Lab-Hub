@@ -140,7 +140,7 @@ def gameLogic():
     resIm = Image.open("imgs/"+game.opponentMove+game.myMove+".png")
     disp.image(resIm, rotation)
     game.reset()
-    time.sleep(3)
+    time.sleep(2)
     draw.rectangle((0, 0, width, height))
     resIm = Image.open("imgs/" + resImage)
     disp.image(resIm, rotation)

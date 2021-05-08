@@ -124,6 +124,7 @@ const mic = document.getElementById('mic');
 const play = document.getElementById('play');
 const wordsIn = document.getElementById('wordsIn');
 const send = document.getElementById('send');
+//test
 
 const src = mic.src
 mic.src = ''
