@@ -5,10 +5,14 @@ from PIL import Image, ImageOps
 import numpy as np
 import cv2
 import sys
+import time
 
 
 # Disable scientific notation for clarity
 np.set_printoptions(suppress=True)
+def Average(lst):
+  if len(lst) != 0:
+    return sum(lst) / len(lst)
 
 img = None
 webCam = False
@@ -42,6 +46,16 @@ for line in f.readlines():
         continue
     labels.append(line.split(' ')[1].strip())
 
+is_face=False
+is_person=False
+impressio_times=[]
+face_counter = 0
+person_counter = 0
+t_start=0
+t_start_flag=False
+t_end=0
+t_end_flag=False
+total_time=0
 
 while(True):
     if webCam:
@@ -60,10 +74,34 @@ while(True):
     normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
     # Load the image into the array
     data[0] = normalized_image_array
-
     # run the inference
     prediction = model.predict(data)
-    print("I think its a:",labels[np.argmax(prediction)])
+    detected = labels[np.argmax(prediction)]
+    
+
+    # ---------- processing Logic ---------- 
+    if detected == "face":
+      is_person = False
+      if is_face == False:
+        print("***************************new face detected")
+        face_counter+=1
+        is_face = True
+        t_start_flag=True
+        t_start = time.time()
+
+    else:
+      is_face = False
+      is_person = False
+      if t_start_flag:
+        print("person gone, adding time")
+        t_end=time.time()
+        impressio_times.append(t_end-t_start)
+        t_start_flag=False
+
+
+      
+    print("face counter ="+str(face_counter))
+    print (Average(impressio_times))
 
     if webCam:
         if sys.argv[-1] == "noWindow":
