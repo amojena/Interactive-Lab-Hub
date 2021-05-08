@@ -33,13 +33,16 @@ large_text_size = 48
 medium_text_size = 28
 small_text_size = 18
 impressio_times=[]
+
 class flag_manager:
     def __init__ (self):
         self.is_face=False
         self.face_counter = 0
+        self.engagements= 0
         self.t_start=0
         self.t_start_flag=False
         self.t_end=0
+        self.engaged=False
 fm=flag_manager()
 
 @contextmanager
@@ -131,10 +134,11 @@ def run_camera():
         fm.t_end=time.time()
         impressio_times.append(fm.t_end-fm.t_start)
         fm.t_start_flag=False
+        fm.engaged = False
 
       
-    print("face counter ="+str(fm.face_counter))
-    print (Average(impressio_times))
+    print("face counter ="+str(fm.face_counter) + "total engagements =" + str(fm.engagements))
+    print (Average(impressio_times) )
 
 
 class FullscreenWindow:
@@ -179,10 +183,18 @@ class FullscreenWindow:
             self.imageIndex += 1
             self.updateImage()
 
+            if fm.is_face and not fm.engaged:
+                fm.engagements += 1
+                fm.engaged = True
+
         if mpr121[9].value:
             self.imageIndex -= 1
             self.updateImage()
-        
+
+            if fm.is_face and not fm.engaged:
+                fm.engagements += 1
+                fm.engaged = True
+
 
 
     def toggle_fullscreen(self, event=None):
