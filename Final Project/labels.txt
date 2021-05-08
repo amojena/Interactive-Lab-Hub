@@ -1,3 +1,2 @@
 0 background
 1 face
-2 person
