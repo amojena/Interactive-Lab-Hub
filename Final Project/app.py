@@ -8,7 +8,6 @@ from subprocess import Popen, call
 import time
 import board
 import busio
-import adafruit_mpu6050
 import json
 import socket
 
@@ -16,9 +15,11 @@ import signal
 import sys
 from queue import Queue
 
+import newmirror as nm
+from threading import Thread
+
  
 i2c = busio.I2C(board.SCL, board.SDA)
-mpu = adafruit_mpu6050.MPU6050(i2c)
 
 hostname = socket.gethostname()
 hardware = 'plughw:2,0'
@@ -36,14 +37,15 @@ def test_connect():
     print('connected')
     emit('after connect',  {'data':'Lets dance'})
 
-@socketio.on('ping-gps')
-def handle_message(val):
-    # print(mpu.acceleration)
-    emit('pong-gps', mpu.acceleration) 
 
 @socketio.on('impressions')
-def refresh_impressions():
-    emit('impressions', 5)
+def refresh_impressions(val):
+    emit('impressions', nm.getImpressions())
+
+
+@socketio.on('start')
+def start_mirror(val):
+    Thread(target=nm.main).start()
 
 
 @app.route('/')
@@ -60,5 +62,6 @@ signal.signal(signal.SIGINT, signal_handler)
 
 if __name__ == "__main__":
     socketio.run(app, host='0.0.0.0', port=5000)
+
 
 
