@@ -195,7 +195,8 @@ class FullscreenWindow:
                 fm.engagements += 1
                 fm.engaged = True
 
-
+    def getImps(self):
+        return self.imageIndex
 
     def toggle_fullscreen(self, event=None):
         self.state = not self.state  # Just toggling the boolean
@@ -216,3 +217,7 @@ if __name__ == '__main__':
         w.tk.update()
         w.check_touch()
         time.sleep(1)
+    
+
+def getImpressions():
+    return w.getImps()
