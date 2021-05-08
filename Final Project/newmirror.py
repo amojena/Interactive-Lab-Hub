@@ -75,7 +75,7 @@ class FullscreenWindow:
         image1 = Image.open(self.imageFiles[self.imageIndex])
         image1 = image1.resize((600,600), Image.ANTIALIAS)
         test = ImageTk.PhotoImage(image1)
-
+    
         self.label1 = Label(bg='black', image=test)
         self.label1.image = test
         self.label1.pack(side=TOP, anchor=N)
@@ -90,7 +90,8 @@ class FullscreenWindow:
             self.imageIndex -= 1
             self.updateImage()
         
-
+    def getImps(self):
+        return self.imageIndex
 
     def toggle_fullscreen(self, event=None):
         self.state = not self.state  # Just toggling the boolean
@@ -102,11 +103,17 @@ class FullscreenWindow:
         self.tk.attributes("-fullscreen", False)
         return "break"
 
-if __name__ == '__main__':
-    w = FullscreenWindow()
+
+w = FullscreenWindow()
+
+def main():
     # w.tk.mainloop()
     while True:
         w.tk.update_idletasks()
         w.tk.update()
         w.check_touch()
         time.sleep(1)
+
+
+def getImpressions():
+    return w.getImps()

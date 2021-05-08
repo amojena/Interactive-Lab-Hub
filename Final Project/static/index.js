@@ -125,6 +125,7 @@ const play = document.getElementById('play');
 const wordsIn = document.getElementById('wordsIn');
 const send = document.getElementById('send');
 const impBtn = document.getElementById('impBtn');
+const startBtn = document.getElementById('startBtn');
 
 
 // play.onclick = () => {
@@ -153,13 +154,17 @@ setInterval(() => {
 
 socket.on('disconnect', () => {
   console.log('disconnect')
-  mic.src = ''
 
   });
 
 impBtn.onclick = () => {
   socket.emit('impressions', ' ')
   wordsIn.value = ''
+}
+
+startBtn.onclick = () => {
+  console.log("start")
+  socket.emit('start', '')
 }
 
 socket.on('impressions', (msg) =>
