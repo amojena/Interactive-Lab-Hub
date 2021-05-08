@@ -5,6 +5,8 @@ from PIL import Image, ImageTk
 from contextlib import contextmanager
 from random import choice
 
+from os import listdir
+
 import time
 import board
 import busio
@@ -36,11 +38,8 @@ def setlocale(name): #thread proof function to work with locale
 
 # maps open weather icons to
 # icon reading is not impacted by the 'lang' parameter
-item_lookup = {
-    "yellow": "assets/unnamed.png",
-    "green": "assets/green.png",
-    "orange": "assets/orange.png",
-}
+
+
 
 
 
@@ -57,14 +56,23 @@ class FullscreenWindow:
         self.state = False
         self.tk.bind("<Return>", self.toggle_fullscreen)
         self.tk.bind("<Escape>", self.end_fullscreen)
-        self.imageFile = choice(list(item_lookup.values()))
+        self.assetsFolderPath = "assets/clothes"
+        self.refreshAssets()
+
+        self.imageIndex = 0
         self.label1 = Label()
         self.updateImage()
+
+    def refreshAssets(self):
+        self.imageFiles = [self.assetsFolderPath + "/" + img for img in listdir(self.assetsFolderPath)]
+        self.numItems = len(self.imageFiles)
         
     
     def updateImage(self):
         self.label1.destroy()
-        image1 = Image.open(self.imageFile)
+        self.refreshAssets()
+        self.imageIndex %= self.numItems
+        image1 = Image.open(self.imageFiles[self.imageIndex])
         image1 = image1.resize((600,600), Image.ANTIALIAS)
         test = ImageTk.PhotoImage(image1)
 
@@ -75,9 +83,13 @@ class FullscreenWindow:
     
     def check_touch(self):
         if mpr121[2].value:
-            print("2")
-            self.imageFile = choice(list(item_lookup.values()))
+            self.imageIndex += 1
             self.updateImage()
+
+        if mpr121[9].value:
+            self.imageIndex -= 1
+            self.updateImage()
+        
 
 
     def toggle_fullscreen(self, event=None):
