@@ -1,30 +1,25 @@
-# smartmirror.py
-# requirements
-# requests, feedparser, traceback, Pillow
-
 from tkinter import *
 import locale
 import threading
-import time
-import requests
-import json
-import traceback
-import feedparser
-
 from PIL import Image, ImageTk
 from contextlib import contextmanager
+from random import choice
+
+import time
+import board
+import busio
+
+import adafruit_mpr121
+
+i2c = busio.I2C(board.SCL, board.SDA)
+
+mpr121 = adafruit_mpr121.MPR121(i2c)
 
 LOCALE_LOCK = threading.Lock()
 
 ui_locale = '' # e.g. 'fr_FR' fro French, '' as default
 time_format = 12 # 12 or 24
 date_format = "%b %d, %Y" # check python doc for strftime() for options
-news_country_code = 'us'
-weather_api_token = '<TOKEN>' # create account at https://darksky.net/dev/
-weather_lang = 'en' # see https://darksky.net/dev/docs/forecast for full list of language parameters values
-weather_unit = 'us' # see https://darksky.net/dev/docs/forecast for full list of unit parameters values
-latitude = None # Set this if IP location lookup does not work for you (must be a string)
-longitude = None # Set this if IP location lookup does not work for you (must be a string)
 xlarge_text_size = 94
 large_text_size = 48
 medium_text_size = 28
@@ -41,21 +36,10 @@ def setlocale(name): #thread proof function to work with locale
 
 # maps open weather icons to
 # icon reading is not impacted by the 'lang' parameter
-icon_lookup = {
-    'clear-day': "assets/Sun.png",  # clear sky day
-    'wind': "assets/Wind.png",   #wind
-    'cloudy': "assets/Cloud.png",  # cloudy day
-    'partly-cloudy-day': "assets/PartlySunny.png",  # partly cloudy day
-    'rain': "assets/Rain.png",  # rain day
-    'snow': "assets/Snow.png",  # snow day
-    'snow-thin': "assets/Snow.png",  # sleet day
-    'fog': "assets/Haze.png",  # fog day
-    'clear-night': "assets/Moon.png",  # clear sky night
-    'partly-cloudy-night': "assets/PartlyMoon.png",  # scattered clouds night
-    'thunderstorm': "assets/Storm.png",  # thunderstorm
-    'tornado': "assests/Tornado.png",    # tornado
-    'hail': "assests/Hail.png"  # hail
-    # 'shirt': "assests/unnamed.png"
+item_lookup = {
+    "yellow": "assets/unnamed.png",
+    "green": "assets/green.png",
+    "orange": "assets/orange.png",
 }
 
 
@@ -73,14 +57,27 @@ class FullscreenWindow:
         self.state = False
         self.tk.bind("<Return>", self.toggle_fullscreen)
         self.tk.bind("<Escape>", self.end_fullscreen)
-        image1 = Image.open("assets/unnamed.png")
+        self.imageFile = choice(list(item_lookup.values()))
+        self.label1 = Label()
+        self.updateImage()
+        
+    
+    def updateImage(self):
+        self.label1.destroy()
+        image1 = Image.open(self.imageFile)
+        image1 = image1.resize((600,600), Image.ANTIALIAS)
         test = ImageTk.PhotoImage(image1)
 
-        label1 = Label(bg='black', image=test)
-        label1.image = test
+        self.label1 = Label(bg='black', image=test)
+        self.label1.image = test
+        self.label1.pack(side=TOP, anchor=N)
 
-        # Position image
-        label1.place(x=100, y=0)
+    
+    def check_touch(self):
+        if mpr121[2].value:
+            print("2")
+            self.imageFile = choice(list(item_lookup.values()))
+            self.updateImage()
 
 
     def toggle_fullscreen(self, event=None):
@@ -95,5 +92,9 @@ class FullscreenWindow:
 
 if __name__ == '__main__':
     w = FullscreenWindow()
-    # root.mainloop()
-    w.tk.mainloop()
+    # w.tk.mainloop()
+    while True:
+        w.tk.update_idletasks()
+        w.tk.update()
+        w.check_touch()
+        time.sleep(1)
