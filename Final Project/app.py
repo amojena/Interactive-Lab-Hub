@@ -15,7 +15,7 @@ import signal
 import sys
 from queue import Queue
 
-import newmirror as nm
+import merged as nm
 from threading import Thread
 
  
