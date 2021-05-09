@@ -16,7 +16,6 @@ import sys
 from queue import Queue
 
 import merged as nm
-from graph import GetHistory
 from threading import Thread
 
  
@@ -24,7 +23,6 @@ i2c = busio.I2C(board.SCL, board.SDA)
 
 hostname = socket.gethostname()
 
-GetHistory()
 
 app = Flask(__name__)
 socketio = SocketIO(app)
