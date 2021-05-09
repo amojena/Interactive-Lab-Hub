@@ -43,6 +43,7 @@ class flag_manager:
         self.t_start_flag=False
         self.t_end=0
         self.engaged=False
+        self.avgTime = 0
 fm=flag_manager()
 
 @contextmanager
@@ -62,7 +63,9 @@ def setlocale(name): #thread proof function to work with locale
 np.set_printoptions(suppress=True)
 def Average(lst):
   if len(lst) != 0:
-    return sum(lst) / len(lst)
+    fm.avgTime = sum(lst) / len(lst)
+    return fm.avgTime
+
 
 img = None
 webCam = False
@@ -195,8 +198,11 @@ class FullscreenWindow:
                 fm.engagements += 1
                 fm.engaged = True
 
-    def getImps(self):
-        return self.imageIndex
+    def getImpressions(self):
+        return f"{fm.face_counter} {fm.avgTime}"
+    
+    def getEngagements(self):
+        return fm.engagements
 
     def toggle_fullscreen(self, event=None):
         self.state = not self.state  # Just toggling the boolean

@@ -40,6 +40,10 @@ def test_connect():
 def refresh_impressions(val):
     emit('impressions', nm.getImpressions())
 
+@socketio.on('engagement')
+def refresh_impressions(val):
+    emit('impressions', nm.getEngagment())
+
 
 @socketio.on('start')
 def start_mirror(val):
@@ -52,7 +56,6 @@ def index():
 
 def signal_handler(sig, frame):
     print('Closing Gracefully')
-    audio_stream.terminate()
     sys.exit(0)
 
 signal.signal(signal.SIGINT, signal_handler)

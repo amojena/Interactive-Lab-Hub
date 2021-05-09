@@ -20,6 +20,7 @@
 <body>
     <center>
         <strong>A & A Fashion</strong>
+        <br>
         <button id="startBtn">Start</button>
     </center>
 
@@ -29,14 +30,22 @@
         document.getElementById("datetime").innerHTML = (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (("0"+dt.getDate()).slice(-2)) +"/"+ (dt.getFullYear()) +" "+ (("0"+dt.getHours()+1).slice(-2)) +":"+ (("0"+dt.getMinutes()+1).slice(-2));
     </script>
 
-    <label> Speak
-        <input type="text" id='wordsIn'>
-        <button id='send'>send</button>
+    <label>Impressions</label>
+    <p id="imp"></p><p id=impTime></p>
+    <button id='impBtn'>Refresh Impressions</button>
 
-    </label>
+    <br>
 
-    <p id="imp">Impressions</p>
-    <button id='impBtn'>send</button>
+    <label>Engagement</label>
+    <p id="eng"></p>
+    <button id='impBtn'>Refresh Engagements</button>
+
+    <br>
+
+
+
+
+
 <script src="static/index.js"></script>
 </body>
 </html>

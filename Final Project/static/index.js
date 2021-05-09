@@ -120,12 +120,15 @@ socket.on('connect', () => {
 // });
 });
 
-const mic = document.getElementById('mic');
-const play = document.getElementById('play');
-const wordsIn = document.getElementById('wordsIn');
-const send = document.getElementById('send');
 const impBtn = document.getElementById('impBtn');
+const impVal = document.getElementById("imp");
+const impTime = document.getElementById("imptime");
+
+
 const startBtn = document.getElementById('startBtn');
+const engBtn = document.getElementById('engBtn');
+const engVal = document.getElementById('eng');
+const impTime = document.getElementById('impTime');
 
 
 // play.onclick = () => {
@@ -159,7 +162,10 @@ socket.on('disconnect', () => {
 
 impBtn.onclick = () => {
   socket.emit('impressions', ' ')
-  wordsIn.value = ''
+}
+
+engBtn.onclick = () => {
+  socket.emit('engagement', ' ')
 }
 
 startBtn.onclick = () => {
@@ -167,6 +173,12 @@ startBtn.onclick = () => {
   socket.emit('start', '')
 }
 
-socket.on('impressions', (msg) =>
-  document.getElementById("imp").innerHTML = msg
-);
+socket.on('impressions', (msg) =>{
+  const msgSplit = msg.split(" ")
+  impVal.innerHTML = msgSplit[0]
+  impTime.innerHTML = msgSplit[1]
+});
+
+socket.on('engagement', (msg) =>{
+  engVal.innerHTML = msg
+});
