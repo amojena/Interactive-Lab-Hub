@@ -1,7 +1,7 @@
 class Item:
     def __init__(self, id, filename, stock, daysSinceLastSale):
         self.ID = id
-        self.filename = filename
+        self.filename = filename + ".png"
         self.stock = stock
         self.daysSinceLastSale = daysSinceLastSale
     
@@ -20,5 +20,7 @@ def GetAllItems():
         print(filename)
         id, filename, stock, lastSale = line.split(",")
         lastSale = lastSale.rstrip()
-        items.append(Item(id, filename, stock, lastSale))
+        item = Item(id, filename, stock, lastSale)
+        if item.checkConditions():
+            items.append(item)
     

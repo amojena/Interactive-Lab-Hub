@@ -16,6 +16,8 @@ import time
 import board
 import busio
 
+import Item
+
 
 import adafruit_mpr121
 
@@ -45,6 +47,7 @@ class flag_manager:
         self.engaged=False
         self.avgTime = 0
 fm=flag_manager()
+items = Item.GetAllItems()
 
 @contextmanager
 def setlocale(name): #thread proof function to work with locale
@@ -159,7 +162,8 @@ class FullscreenWindow:
         self.tk.bind("<Return>", self.toggle_fullscreen)
         self.tk.bind("<Escape>", self.end_fullscreen)
         self.assetsFolderPath = "assets/clothes"
-        self.refreshAssets()
+        # self.refreshAssets()
+        self.numItems = len(items)
 
         self.imageIndex = 0
         self.label1 = Label()
@@ -172,9 +176,9 @@ class FullscreenWindow:
     
     def updateImage(self):
         self.label1.destroy()
-        self.refreshAssets()
+        # self.refreshAssets()
         self.imageIndex %= self.numItems
-        image1 = Image.open(self.imageFiles[self.imageIndex])
+        image1 = Image.open(items[self.imageIndex].filename)
         image1 = image1.resize((600,600), Image.ANTIALIAS)
         test = ImageTk.PhotoImage(image1)
 
@@ -184,9 +188,8 @@ class FullscreenWindow:
 
     def updateImage_onImpression(self):
         self.label1.destroy()
-        self.refreshAssets()
         self.imageIndex %= self.numItems
-        image1 = Image.open(self.imageFiles[self.imageIndex])
+        image1 = Image.open(items[self.imageIndex].filename)
         image1 = image1.resize((200,200), Image.ANTIALIAS)
         test = ImageTk.PhotoImage(image1)
 
