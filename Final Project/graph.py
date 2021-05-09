@@ -42,7 +42,7 @@ def GetHistory():
     # ax.set_title('Scores by group and gender')
     # ax.legend()
 
-    plt.savefig("impressions.png")
+    plt.savefig("static/impressions.png")
     fig, ax = plt.subplots()
     ax.plot(avg_time)
     plt.xlabel('Date')
@@ -51,7 +51,7 @@ def GetHistory():
     ax.grid(True)
     ax.set_xticklabels(date)
     plt.title('Average Time per Impression for Last 7 Days')
-    plt.savefig("avg.png")
+    plt.savefig("static/avg.png")
 
 if __name__ == '__main__':
 	GetHistory()
