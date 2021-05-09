@@ -129,6 +129,7 @@ def run_camera():
         fm.is_face = True
         fm.t_start_flag=True
         fm.t_start = time.time()
+        w.updateImage_onImpression()
 
     else:
       fm.is_face = False
@@ -138,6 +139,7 @@ def run_camera():
         impressio_times.append(fm.t_end-fm.t_start)
         fm.t_start_flag=False
         fm.engaged = False
+        w.updateImage()
 
       
     print("face counter ="+str(fm.face_counter) + "total engagements =" + str(fm.engagements))
@@ -179,6 +181,19 @@ class FullscreenWindow:
         self.label1 = Label(bg='black', image=test)
         self.label1.image = test
         self.label1.pack(side=TOP, anchor=N)
+
+    def updateImage_onImpression(self):
+        self.label1.destroy()
+        self.refreshAssets()
+        self.imageIndex %= self.numItems
+        image1 = Image.open(self.imageFiles[self.imageIndex])
+        image1 = image1.resize((200,200), Image.ANTIALIAS)
+        test = ImageTk.PhotoImage(image1)
+
+        self.label1 = Label(bg='black', image=test)
+        self.label1.image = test
+        self.label1.pack(side=LEFT, anchor=N, padx=20)
+
 
     
     def check_touch(self):
