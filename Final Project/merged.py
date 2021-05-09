@@ -243,7 +243,7 @@ def main():
         w.tk.update_idletasks()
         w.tk.update()
         w.check_touch()
-        time.sleep(1)
+        time.sleep(0.3)
     
 
 def getImpressions():
