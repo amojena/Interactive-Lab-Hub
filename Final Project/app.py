@@ -24,6 +24,8 @@ i2c = busio.I2C(board.SCL, board.SDA)
 
 hostname = socket.gethostname()
 
+GetHistory()
+
 app = Flask(__name__)
 socketio = SocketIO(app)
 
@@ -34,7 +36,6 @@ def handel_speak(val):
 @socketio.on('connect')
 def test_connect():
     print('connected')
-    Thread(target=GetHistory()).start()
     emit('after connect',  {'data':'Lets dance'})
 
 
