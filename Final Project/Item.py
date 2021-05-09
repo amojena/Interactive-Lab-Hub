@@ -2,8 +2,8 @@ class Item:
     def __init__(self, id, filename, stock, daysSinceLastSale):
         self.ID = id
         self.filename = filename + ".png"
-        self.stock = stock
-        self.daysSinceLastSale = daysSinceLastSale
+        self.stock = int(stock)
+        self.daysSinceLastSale = int(daysSinceLastSale)
     
     def checkConditions(self):
         return self.stock >= 100 or self.daysSinceLastSale >= 14
