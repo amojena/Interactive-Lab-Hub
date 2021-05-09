@@ -11,13 +11,12 @@ import sys
 import time
 
 from os import listdir
-
-import time
 import board
 import busio
 
-
 import adafruit_mpr121
+
+import Item
 
 i2c = busio.I2C(board.SCL, board.SDA)
 
@@ -45,6 +44,8 @@ class flag_manager:
         self.engaged=False
         self.avgTime = 0
 fm=flag_manager()
+
+items = Item.GetAllItems()
 
 @contextmanager
 def setlocale(name): #thread proof function to work with locale
