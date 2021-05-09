@@ -197,7 +197,7 @@ class FullscreenWindow:
 
         self.label1 = Label(bg='black', image=test)
         self.label1.image = test
-        self.label1.pack(side=LEFT, anchor=N, padx=20)
+        self.label1.pack(side=LEFT, anchor=N, padx=300)
 
 
     
