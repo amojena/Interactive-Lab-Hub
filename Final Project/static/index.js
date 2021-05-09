@@ -122,13 +122,11 @@ socket.on('connect', () => {
 
 const impBtn = document.getElementById('impBtn');
 const impVal = document.getElementById("imp");
-const impTime = document.getElementById("imptime");
 
 
 const startBtn = document.getElementById('startBtn');
 const engBtn = document.getElementById('engBtn');
 const engVal = document.getElementById('eng');
-const impTime = document.getElementById('impTime');
 
 
 // play.onclick = () => {
@@ -145,11 +143,6 @@ const impTime = document.getElementById('impTime');
   
 // }
 
-send.onclick = () => {
-  socket.emit('speak', wordsIn.value)
-  wordsIn.value = ''
-}
-wordsIn.onkeyup = (e) => { if (e.keyCode === 13) { send.click(); } };
   
 setInterval(() => {
   socket.emit('ping-gps', 'dat')
@@ -174,9 +167,7 @@ startBtn.onclick = () => {
 }
 
 socket.on('impressions', (msg) =>{
-  const msgSplit = msg.split(" ")
-  impVal.innerHTML = msgSplit[0]
-  impTime.innerHTML = msgSplit[1]
+  impVal.innerHTML = msg
 });
 
 socket.on('engagement', (msg) =>{

@@ -198,11 +198,6 @@ class FullscreenWindow:
                 fm.engagements += 1
                 fm.engaged = True
 
-    def getImpressions(self):
-        return f"{fm.face_counter} {fm.avgTime}"
-    
-    def getEngagements(self):
-        return fm.engagements
 
     def toggle_fullscreen(self, event=None):
         self.state = not self.state  # Just toggling the boolean
@@ -214,8 +209,8 @@ class FullscreenWindow:
         self.tk.attributes("-fullscreen", False)
         return "break"
 
-if __name__ == '__main__':
-    w = FullscreenWindow()
+w = FullscreenWindow()
+def main():
     # w.tk.mainloop()
     while True:
         run_camera()
@@ -226,4 +221,7 @@ if __name__ == '__main__':
     
 
 def getImpressions():
-    return w.getImps()
+    return f"Average impression time is {fm.avgTime} after {fm.face_counter} impression(s)"
+
+def getEngagement():
+    return fm.engagements

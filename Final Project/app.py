@@ -42,7 +42,7 @@ def refresh_impressions(val):
 
 @socketio.on('engagement')
 def refresh_impressions(val):
-    emit('impressions', nm.getEngagment())
+    emit('engagement', nm.getEngagement())
 
 
 @socketio.on('start')
