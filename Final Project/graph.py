@@ -37,11 +37,21 @@ def GetHistory():
     ax.legend(labels=['impressions', 'engagement'])
     ax.set_xticks(X)
     ax.set_xticklabels(date)
+    plt.title('Total No. of Impressions & Engagements For Last 7 Days')
     print(date)
     # ax.set_title('Scores by group and gender')
     # ax.legend()
 
-    plt.savefig("graph.png")
+    plt.savefig("impressions.png")
+    fig, ax = plt.subplots()
+    ax.plot(avg_time)
+    plt.xlabel('Date')
+    plt.ylabel('Avg Impression Time (Seconds)')
+    ax.set_xticks(X)
+    ax.grid(True)
+    ax.set_xticklabels(date)
+    plt.title('Average Time per Impression for Last 7 Days')
+    plt.savefig("avg.png")
 
 if __name__ == '__main__':
 	GetHistory()
