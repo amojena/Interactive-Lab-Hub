@@ -16,6 +16,7 @@ import sys
 from queue import Queue
 
 import merged as nm
+from graph import GetHistory
 from threading import Thread
 
  
@@ -33,6 +34,7 @@ def handel_speak(val):
 @socketio.on('connect')
 def test_connect():
     print('connected')
+    Thread(target=GetHistory()).start()
     emit('after connect',  {'data':'Lets dance'})
 
 
