@@ -21,7 +21,7 @@ import Item
 
 import adafruit_mpr121
 
-from graph import GetHistory
+# from graph import GetHistory
 
 i2c = busio.I2C(board.SCL, board.SDA)
 
@@ -240,7 +240,7 @@ class FullscreenWindow:
 w = FullscreenWindow()
 def main():
     # w.tk.mainloop()
-    GetHistory()
+    # GetHistory()
     while True:
         run_camera()
         w.tk.update_idletasks()

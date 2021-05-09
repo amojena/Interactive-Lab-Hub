@@ -18,10 +18,15 @@ from queue import Queue
 import merged as nm
 from threading import Thread
 
+from graph import GetHistory
+
  
 i2c = busio.I2C(board.SCL, board.SDA)
 
 hostname = socket.gethostname()
+
+GetHistory()
+
 
 
 app = Flask(__name__)
