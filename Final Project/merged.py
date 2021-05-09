@@ -11,12 +11,13 @@ import sys
 import time
 
 from os import listdir
+
+import time
 import board
 import busio
 
-import adafruit_mpr121
 
-import Item
+import adafruit_mpr121
 
 i2c = busio.I2C(board.SCL, board.SDA)
 
@@ -44,8 +45,6 @@ class flag_manager:
         self.engaged=False
         self.avgTime = 0
 fm=flag_manager()
-
-items = Item.GetAllItems()
 
 @contextmanager
 def setlocale(name): #thread proof function to work with locale
@@ -200,19 +199,27 @@ class FullscreenWindow:
     def check_touch(self):
         if mpr121[2].value:
             self.imageIndex += 1
-            self.updateImage()
+            if fm.is_face:
+                if not fm.engaged:
+                    fm.engagements += 1
+                    fm.engaged = True
 
-            if fm.is_face and not fm.engaged:
-                fm.engagements += 1
-                fm.engaged = True
+                self.updateImage_onImpression()
+            else:
+                self.updateImage()
+
 
         if mpr121[9].value:
             self.imageIndex -= 1
             self.updateImage()
+            if fm.is_face:
+                if not fm.engaged:
+                    fm.engagements += 1
+                    fm.engaged = True
 
-            if fm.is_face and not fm.engaged:
-                fm.engagements += 1
-                fm.engaged = True
+                self.updateImage_onImpression()
+            else:
+                self.updateImage()
 
 
     def toggle_fullscreen(self, event=None):
