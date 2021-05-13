@@ -13,18 +13,35 @@ Final Project Presentations (video watch party) - May 12
  
  #### Server
 Our localhost webpage consists of your typical HTML, JS and Python files. The [javascript file](/Final%20Project/static/index.js) waits for events on the webpage and sends a message to a [python](/Final%20Project/app.py) file that serves as a bridge between the server and the pi. Simply put, there are 4 events:
-1. Connect: once the webpage is up and running, the pi gets a message that the server is up and running. This triggers the pi to run a [Python script](/Final%20Project/graph.py) that will generate two graphs the describe the mirror's performance in the last 7 days. These are saved in a directory that is specified in the [HTML](/Final%20Project/templates/index.html).
+1. Connect: once the webpage is up and running, the pi gets a message that the server is up and running. This triggers the pi to run a [Python script](/Final%20Project/graph.py) that will generate two graphs the describe the mirror's performance in the last 7 days. These are saved in a directory that is specified in the [HTML](/Final%20Project/templates/index.html). The structure of the file containing the performance of the previous has the following format for each row:
+```
+Date,AverageImpressionTime,#ofImpressions,#ofEngagements
+```
 2. Start: Once the webpage is up and running there is a 'Start' button at the top of the page that when clicked, sends a message to the pi to [start the "smart" part of the mirror](/Final%20Project/merged.py) (i.e. turn the camera and display on and start measuring impressions and engagements).
 3. Impressions: Once the smart mirror is running, the user can click on a button that will fetch the latest performance updates related to impressions. Clicking the 'Refresh Impressions' will show the user a message that looks like: "Average impression time is X.XXs after X impression(s)."
 4. Engagements: Similar to the Impressions event, the "Refresh Engagements" button will fetch the latest performance updates related to engagements. Clicking the button will only show the number of engagements.
 
  
  #### Pi
- - Loading of items (talk about condition)
- - Tkinter for displaying the images (talk about top, bottom, left, right frames?)
- - Original code was from SmartMirror module (find youtube link and reference OG file)
- - Teachable Machine model
- - Logic diagram for performance measurement
+Once the start command is received from the server, the first thing the pi does is load the items that must be shown on the mirror. To do this, the pi uses the [Item](/Final%20Project/Item.py) class that reads an intenvtory .txt file. This file is structed such that every line is formatted as shown below
+```
+ProductID,ItemName,Stock,DaysSinceLastSale
+```
+The latter two values are the determining factors of whether an item needs to be shown in the mirror. Since the mirror is meant to show slow running items, only articles of clothing of which there are 100+ items or have not had a single unit sold in the last 2 weeks will be loaded onto the pi. They are stored as Item objects in a list through which the user can cycle through by interacting with the mirror (more on this later).
+
+Once the items are loaded onto the pi, they are initally displayed front and center of the frame. We used the [Tkinter](https://docs.python.org/3/library/tkinter.html) module to disply the images. The foundation of this code was provided by [HacketHouseYT's Smart-Mirror library](https://github.com/HackerShackOfficial/Smart-Mirror). We modified their demo code to position the images at the center whenever a person is not looking directly at the mirror. If someone was looking at the mirror, either because they were attracted by the image or using the mirror as normal, the displayed image would be repositioned at the left side of the frame as to not hinder the reflection (the mirror's main functionality).
+
+To determine when a person was looking at the mirror, we used a [Teachable Machine](https://teachablemachine.withgoogle.com/) model. The model was trained with 2 classes: "Face" and "Neutral". The former is classified whenever the camera recognizes a face in the camera's frame after 4 seconds. Then, the image would get repositioned. It is important to note that we did not integrate actual face detection into the model. The model was trained with hundreds of picture of a frame with and without a person in sight. Therefore, the details of the model are somewhat of a "black box" made by Google's ML.
+
+Nevertheless, we use this to accurately measure how many people have walked past the mirror or have stopped to use the mirror to any extent. The smart mirror measures 3 metrics in real time: impressions, average time of impressions and engagements. These are defined as follows:
+1. Impressions: A person is within the camera's frame for 4s or more
+2. Average time of impressions: How long each impression lasts (i.e. how many seconds after the 4s mark) / # of impressions
+3. Engagements: Amount of unique impressions which led to a user to physically interact with the mirror (i.e. how many users cycled to some degree throught the items by touching the mirror)
+
+Below is a diagram of how the metrics were measured
+Logic diagram
+
+
  
  ## labeled image, sketches
 4. Detailed video
