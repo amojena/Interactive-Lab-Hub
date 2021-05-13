@@ -6,14 +6,34 @@ Functional check-off - May 10
  
 Final Project Presentations (video watch party) - May 12
 
-1. Description + Usecase (Anam)
-2. Design Architecture:
- - Hardware (components used)
- - Software (server side (Antonio), pi (smart mirror module, camera, sensors etc)
- - labeled image, sketches
+## Description + Usecase (Anam)
+## Design Architecture
+ ### Hardware (components used)
+ ### Software (server side (Antonio), pi (smart mirror module, camera, sensors etc)
+ 
+ #### Server
+Our localhost webpage consists of your typical HTML, JS and Python files. The [javascript file](/Final%20Project/static/index.js) waits for events on the webpage and sends a message to a [python](/Final%20Project/app.py) file that serves as a bridge between the server and the pi. Simply put, there are 4 events:
+1. Connect: once the webpage is up and running, the pi gets a message that the server is up and running. This triggers the pi to run a [Python script](/Final%20Project/graph.py) that will generate two graphs the describe the mirror's performance in the last 7 days. These are saved in a directory that is specified in the [HTML](/Final%20Project/templates/index.html).
+2. Start: Once the webpage is up and running there is a 'Start' button at the top of the page that when clicked, sends a message to the pi to [start the "smart" part of the mirror](/Final%20Project/merged.py) (i.e. turn the camera and display on and start measuring impressions and engagements).
+3. Impressions: Once the smart mirror is running, the user can click on a button that will fetch the latest performance updates related to impressions. Clicking the 'Refresh Impressions' will show the user a message that looks like: "Average impression time is X.XXs after X impression(s)."
+4. Engagements: Similar to the Impressions event, the "Refresh Engagements" button will fetch the latest performance updates related to engagements. Clicking the button will only show the number of engagements.
+
+ 
+ #### Pi
+ - Loading of items (talk about condition)
+ - Tkinter for displaying the images (talk about top, bottom, left, right frames?)
+ - Original code was from SmartMirror module (find youtube link and reference OG file)
+ - Teachable Machine model
+ - Logic diagram for performance measurement
+ 
+ ## labeled image, sketches
 4. Detailed video
 5. Demo video
 6. Reflection
+7. Contributions
+- Anam: camera module and model, created dummy data
+- Antonio: server, image display, reading dummy data logic, touch sensor logic
+- Both: mirror performance logic, PhUI
 
 ## Objective
 
