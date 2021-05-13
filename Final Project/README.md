@@ -44,9 +44,11 @@ Below is a diagram of how the metrics were measured
 _Not described is the calculation of average impression time. This is done at the moment the user on the web page clicks on the "Refresh Engagements" at which point the average calculation is carried out and reported._
  
  ## labeled image, sketches
-4. Detailed video
+4. ![Technical video](
 5. Demo video
 6. Reflection
+Looking back we think that using a CV library to detect bodies/faces would have resulted in better measurement performance. As mentioned earlier, we used Teachable Machine and trained the model with pictures and that can result in some unexpected behavior. Using this type of detection would allow us to make more detailed measurements. For example, we could measure the amount of people that walk past the mirror without even looking at it. We could also combine face detection with a Teachable Machine model to analyze the emotion of the user interacting with the mirror (are they surprised, happy, frustrated, etc). Furthermore, we wish we knew how to properly laser cut as we would have liked to make the frame of the window to be made out of wood instead of cardboard. Lastly, we had a set of extra features we wanted to implement but didn't have time to implement them. The major extra feature we couldn't get to was allowing the user to center the diplayed image again with the intention of seeing how the item displayed looks on them (think of a shirt).
+
 7. Contributions
 - Anam: camera module and model, created dummy data
 - Antonio: server, image display, reading dummy data logic, touch sensor logic
