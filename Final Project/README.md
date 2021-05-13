@@ -9,7 +9,6 @@ Final Project Presentations (video watch party) - May 12
 ## Description + Usecase (Anam)
 ## Design Architecture
  ### Hardware (components used)
- ### Software (server side (Antonio), pi (smart mirror module, camera, sensors etc)
  
  #### Server
 Our localhost webpage consists of your typical HTML, JS and Python files. The [javascript file](/Final%20Project/static/index.js) waits for events on the webpage and sends a message to a [python](/Final%20Project/app.py) file that serves as a bridge between the server and the pi. Simply put, there are 4 events:
@@ -23,7 +22,8 @@ Date,AverageImpressionTime,#ofImpressions,#ofEngagements
 
  
  #### Pi
-Once the start command is received from the server, the first thing the pi does is load the items that must be shown on the mirror. To do this, the pi uses the [Item](/Final%20Project/Item.py) class that reads an intenvtory .txt file. This file is structed such that every line is formatted as shown below
+Once the start command is received from the server, the first thing the pi does is load the items that must be shown on the mirror. To do this, the pi uses the [Item]
+/Item.py) class that reads an intenvtory .txt file. This file is structed such that every line is formatted as shown below
 ```
 ProductID,ItemName,Stock,DaysSinceLastSale
 ```
@@ -36,12 +36,12 @@ To determine when a person was looking at the mirror, we used a [Teachable Machi
 Nevertheless, we use this to accurately measure how many people have walked past the mirror or have stopped to use the mirror to any extent. The smart mirror measures 3 metrics in real time: impressions, average time of impressions and engagements. These are defined as follows:
 1. Impressions: A person is within the camera's frame for 4s or more
 2. Average time of impressions: How long each impression lasts (i.e. how many seconds after the 4s mark) / # of impressions
-3. Engagements: Amount of unique impressions which led to a user to physically interact with the mirror (i.e. how many users cycled to some degree throught the items by touching the mirror)
+3. Engagements: Amount of unique impressions which led to a user to physically interact with the mirror (i.e. how many users cycled to some degree throught the items by touching the mirror). This specifically is calculated by checking the values of ports 2 and 9 on the capacitive touch sensors during an impression.
 
 Below is a diagram of how the metrics were measured
-Logic diagram
+![SmartMirrorLogic](SmartMirrorLogic.png)
 
-
+_Not described is the calculation of average impression time. This is done at the moment the user on the web page clicks on the "Refresh Engagements" at which point the average calculation is carried out and reported._
  
  ## labeled image, sketches
 4. Detailed video
