@@ -6,7 +6,13 @@ Functional check-off - May 10
  
 Final Project Presentations (video watch party) - May 12
 
-## Description + Usecase (Anam)
+## Description
+We designed a smart mirror for retail stores to help them liquidate slow running items. Our idea is to innovate ad communication within a traditional touchpoint. Use of digital screens for ads results in ad blindness and failing retention. Our idea is to provide the "pull" factor with mirrors for seamless viewership and increased engagement. 
+
+We designed the smart mirror to enable shop owners use a regular mirror as a marketing channel.In an idle state the mirror displays slow running inventory items in the center of the screen (a), whenever a customer stands in front of the mirror for more than 2 seconds it records that as an impression and moves the item display to the side of the screen (b) to avoid any hinderence in customer's view. Customer still has the option to interact with the mirror and scroll through the displayed items; this is recorded as an engagement. We developed an admin dashboard with the mirror to give the store owner insights on mirror's performance as a marketing channel. The dashboard displays total number of impressions, engagements and average impression time (amount of time customer stands infront of the mirror) for the day. It also displays visualizations of impression and enagagement history for past 7 days. The purpose of the dashboard is to give owner insights into the performance of the  smart mirror and help him figure out the optimal location for the smart mirror in the store. 
+
+![mirrordisplays](mirrordisplays.png)
+
 ## Design Architecture
  ### Hardware (components used)
  
