@@ -14,6 +14,10 @@ We designed the smart mirror to enable shop owners use a regular mirror as a mar
 ![mirrordisplays](mirrordisplays.png)
 
 ## Design Architecture
+ ### Design Sketch
+ 
+ ![sketch](sketch.png)
+ 
  ### Hardware (components used)
  
  #### Server
@@ -49,10 +53,12 @@ Below is a diagram of how the metrics were measured
 
 _Not described is the calculation of average impression time. This is done at the moment the user on the web page clicks on the "Refresh Engagements" at which point the average calculation is carried out and reported._
  
- ## labeled image, sketches
-4. [Technical video](https://drive.google.com/file/d/12rsb5dNeV_98kxRerhpMU2UZF9vAc9TF/view?usp=sharing)
-5. [Demo video](https://drive.google.com/file/d/1VQ6X0gf9IwjF8L_LpPwcW_kvp8LJPwKi/view?usp=sharing)
-6. Reflection
+ ## Demo
+4. Finished Product
+![product](product.png)
+5. [Technical video](https://drive.google.com/file/d/12rsb5dNeV_98kxRerhpMU2UZF9vAc9TF/view?usp=sharing)
+6. [Demo video](https://drive.google.com/file/d/1VQ6X0gf9IwjF8L_LpPwcW_kvp8LJPwKi/view?usp=sharing)
+7. Reflection
 
 Looking back we think that using a CV library to detect bodies/faces would have resulted in better measurement performance. As mentioned earlier, we used Teachable Machine and trained the model with pictures and that can result in some unexpected behavior. Using this type of detection would allow us to make more detailed measurements. For example, we could measure the amount of people that walk past the mirror without even looking at it. We could also combine face detection with a Teachable Machine model to analyze the emotion of the user interacting with the mirror (are they surprised, happy, frustrated, etc). Furthermore, we wish we knew how to properly laser cut as we would have liked to make the frame of the window to be made out of wood instead of cardboard. Lastly, we had a set of extra features we wanted to implement but didn't have time to implement them. The major extra feature we couldn't get to was allowing the user to center the diplayed image again with the intention of seeing how the item displayed looks on them (think of a shirt).
 
@@ -60,6 +66,7 @@ Looking back we think that using a CV library to detect bodies/faces would have 
 - Anam: camera module and model, created dummy data
 - Antonio: server, image display, reading dummy data logic, touch sensor logic
 - Both: mirror performance logic, PhUI
+![team](team.png)
 
 ## Objective
 
