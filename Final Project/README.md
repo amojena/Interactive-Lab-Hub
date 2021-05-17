@@ -63,32 +63,7 @@ _Not described is the calculation of average impression time. This is done at th
 Looking back we think that using a CV library to detect bodies/faces would have resulted in better measurement performance. As mentioned earlier, we used Teachable Machine and trained the model with pictures and that can result in some unexpected behavior. Using this type of detection would allow us to make more detailed measurements. For example, we could measure the amount of people that walk past the mirror without even looking at it. We could also combine face detection with a Teachable Machine model to analyze the emotion of the user interacting with the mirror (are they surprised, happy, frustrated, etc). Furthermore, we wish we knew how to properly laser cut as we would have liked to make the frame of the window to be made out of wood instead of cardboard. Lastly, we had a set of extra features we wanted to implement but didn't have time to implement them. The major extra feature we couldn't get to was allowing the user to center the diplayed image again with the intention of seeing how the item displayed looks on them (think of a shirt).
 
 7. Contributions
-- Anam: camera module and model, created dummy data
-- Antonio: server, image display, reading dummy data logic, touch sensor logic
+- Anam Tahir: camera module and model, created dummy data
+- Antonio Mojena: server, image display, reading dummy data logic, touch sensor logic
 - Both: mirror performance logic, PhUI
 ![team](team.png)
-
-## Objective
-
-The goal of this final project is for you to have a fully functioning and well-designed interactive device of your own design.
- 
-## Description
-Your project is to design and build an interactive device to suit a specific application of your choosing. 
-
-## Deliverables
-
-1. Documentation of design process
-2. 
-3. Archive of all code, design patterns, etc. used in the final design. (As with labs, the standard should be that the documentation would allow you to recreate your project if you woke up with amnesia.)
-4. Video of someone using your project (or as safe a version of that as can be managed given social distancing)
-5. Reflections on process (What have you learned or wish you knew at the start?)
-
-
-## Teams
-
-You can and are not required to work in teams. Be clear in documentation who contributed what. The total project contributions should reflect the number of people on the project.
-
-## Examples
-
-[Here is a list of good final projects from previous classes.](https://github.com/FAR-Lab/Developing-and-Designing-Interactive-Devices/wiki/Previous-Final-Projects)
-This version of the class is very different, but it may be useful to see these.
